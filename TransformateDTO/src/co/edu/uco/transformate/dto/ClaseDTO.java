@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.dto;
 
+<<<<<<< HEAD
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -80,5 +81,8 @@ public final class ClaseDTO {
 	public void setEntrenadorDTO(EntrenadorDTO entrenadorDTO) {
 		this.entrenadorDTO = entrenadorDTO;
 	}
+=======
+public class ClaseDTO {
+>>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
 
 }
