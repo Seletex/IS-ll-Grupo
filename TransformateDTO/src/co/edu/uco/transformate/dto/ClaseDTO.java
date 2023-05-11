@@ -1,12 +1,12 @@
 package co.edu.uco.transformate.dto;
 
+<<<<<<< HEAD
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilDate;
-import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
 public final class ClaseDTO {
@@ -52,7 +52,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setFechaDate(LocalDate defaultDate) {
-		this.fechaDate = UtilDate.getDefault(defaultDate);
+		this.fechaDate = defaultDate;
 		return this;
 	}
 
@@ -61,7 +61,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setHoraInicioDate(LocalDateTime defaultDateTime) {
-		this.horaInicioDate = UtilDate.getDefaultTime(defaultDateTime);
+		this.horaInicioDate = defaultDateTime;
 		return this;
 	}
 
@@ -70,7 +70,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setHoraFinDate(LocalDateTime horaFinDate) {
-		this.horaFinDate = UtilDate.getDefaultTime(horaFinDate);
+		this.horaFinDate = horaFinDate;
 		return this;
 	}
 
@@ -79,7 +79,10 @@ public final class ClaseDTO {
 	}
 
 	public void setEntrenadorDTO(EntrenadorDTO entrenadorDTO) {
-		this.entrenadorDTO = UtilObject.getDefault(entrenadorDTO, EntrenadorDTO.create());
+		this.entrenadorDTO = entrenadorDTO;
 	}
+=======
+public class ClaseDTO {
+>>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
 
 }

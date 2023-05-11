@@ -27,20 +27,6 @@ public final class UtilText {
 		return resultString;
 	}
 
-	public final boolean isEmpty(final String text) {
-		return applyTrim(text).equals(EMPTY);
-	}
-
-	public final String getDefaultIfEmpty(final String text, final String defaultValue) {
-		/*
-		 * String resultString = TEXT; if(isEmpty(TEXT)) { resultString =
-		 * getDefault(defaultValue); }
-		 * 
-		 * return resultString;
-		 */
-		return isEmpty(text) ? getDefault(defaultValue) : text;
-	}
-
 	public final String getDefault(final String text) {
 		return getDefault(text, EMPTY);
 	}

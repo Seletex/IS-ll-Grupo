@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.dto;
 
+<<<<<<< HEAD
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -51,4 +52,8 @@ public class TipoDocumentoDTO {
 	
 	
 
+=======
+public class TipoDocumentoDTO {
+
+>>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
 }

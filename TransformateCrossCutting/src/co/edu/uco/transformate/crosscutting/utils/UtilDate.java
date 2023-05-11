@@ -29,17 +29,9 @@ public final class UtilDate {
 		return (dateStringIsValid(fechaValue)) ? LocalDate.parse(fechaValue, DateTimeFormatter.ISO_LOCAL_DATE)
 				: DEFAULT_DATE;
 	}
-	public static final LocalDateTime generateFechaFromStringTime(final String fechaValue) {
-		return (dateStringIsValid(fechaValue)) ? LocalDateTime.parse(fechaValue, DateTimeFormatter.ISO_LOCAL_DATE)
-				: DEFAULT_DATE_TIME;
-	}
 
 	public static final LocalDate getDefault(final LocalDate dateValue) {
 		return (UtilObject.isNull(dateValue)) ? DEFAULT_DATE : dateValue;
 	}
-	public static final LocalDateTime getDefaultTime(final LocalDateTime dateValue) {
-		return (UtilObject.isNull(dateValue)) ? DEFAULT_DATE_TIME : dateValue;
-	}
-
 
 }
