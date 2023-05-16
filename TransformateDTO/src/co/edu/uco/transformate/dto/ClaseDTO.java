@@ -1,12 +1,12 @@
 package co.edu.uco.transformate.dto;
 
-<<<<<<< HEAD
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilDate;
+import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
 public final class ClaseDTO {
@@ -31,7 +31,7 @@ public final class ClaseDTO {
 		setFechaDate(UtilDate.DEFAULT_DATE);
 		setHoraInicioDate(UtilDate.DEFAULT_DATE_TIME);
 		setHoraFinDate(UtilDate.DEFAULT_DATE_TIME);
-		setEntrenadorDTO(entrenadorDTO);
+		setEntrenadorDTO(EntrenadorDTO.create());
 	}
 
 	public static ClaseDTO create() {
@@ -52,7 +52,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setFechaDate(LocalDate defaultDate) {
-		this.fechaDate = defaultDate;
+		this.fechaDate = UtilDate.getDefault(defaultDate);
 		return this;
 	}
 
@@ -61,7 +61,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setHoraInicioDate(LocalDateTime defaultDateTime) {
-		this.horaInicioDate = defaultDateTime;
+		this.horaInicioDate = UtilDate.getDefaultTime(defaultDateTime);
 		return this;
 	}
 
@@ -70,7 +70,7 @@ public final class ClaseDTO {
 	}
 
 	public final ClaseDTO setHoraFinDate(LocalDateTime horaFinDate) {
-		this.horaFinDate = horaFinDate;
+		this.horaFinDate = UtilDate.getDefaultTime(horaFinDate);
 		return this;
 	}
 
@@ -79,10 +79,7 @@ public final class ClaseDTO {
 	}
 
 	public void setEntrenadorDTO(EntrenadorDTO entrenadorDTO) {
-		this.entrenadorDTO = entrenadorDTO;
+		this.entrenadorDTO = UtilObject.getDefault(entrenadorDTO, EntrenadorDTO.create());
 	}
-=======
-public class ClaseDTO {
->>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
 
 }

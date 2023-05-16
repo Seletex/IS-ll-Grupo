@@ -1,6 +1,5 @@
 package co.edu.uco.transformate.dto;
 
-<<<<<<< HEAD
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,22 +10,22 @@ public class TipoDocumentoDTO {
 
 	private UUID identificador;
 	private String nombre;
+
 	public TipoDocumentoDTO(UUID identificador, String nombre) {
-		super();
-		setIdentificador( identificador);
+
+		setIdentificador(identificador);
 		setNombre(nombre);
 	}
-	
-	 public TipoDocumentoDTO() {
-		 setIdentificador(UtilUUID.DEFAULT_UUID
-				 );
-		 setNombre(UtilText.getDefaultValue());
-		
+
+	public TipoDocumentoDTO() {
+		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setNombre(UtilText.getDefaultValue());
+
 	}
-	 
-	 public static TipoDocumentoDTO create() {
-		 return new TipoDocumentoDTO();
-	 }
+
+	public static TipoDocumentoDTO create() {
+		return new TipoDocumentoDTO();
+	}
 
 	public final UUID getIdentificador() {
 		return identificador;
@@ -45,15 +44,5 @@ public class TipoDocumentoDTO {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
 		return this;
 	}
-	 
-	 
-		
-	
-	
-	
 
-=======
-public class TipoDocumentoDTO {
-
->>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
 }

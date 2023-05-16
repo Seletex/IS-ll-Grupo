@@ -1,42 +1,84 @@
 package co.edu.uco.transformate.dto;
 
-<<<<<<< HEAD
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
+import co.edu.uco.transformate.crosscutting.utils.UtilDate;
+import co.edu.uco.transformate.crosscutting.utils.UtilObject;
+import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
+
 public class CompraDTO {
-	
+
 	private UUID identificadorUuid;
 	private ProductoDTO productoDTO;
-	private MiembroDTO miembroDTO;
-	private Date fechaDate;
+	private TipoPagoDTO tipoPagoDTO;
+	private LocalDate fechaDate;
 	private EstadoPagoDTO estadoPagoDTO;
-	private MetodoPagoDTO metodoPagoDTO;
-	
-	
-	public CompraDTO(UUID identificadorUuid, ProductoDTO productoDTO, MiembroDTO miembroDTO, Date fechaDate,
-			EstadoPagoDTO estadoPagoDTO, MetodoPagoDTO metodoPagoDTO) {
-		super();
-		this.identificadorUuid = identificadorUuid;
-		this.productoDTO = productoDTO;
-		this.miembroDTO = miembroDTO;
-		this.fechaDate = fechaDate;
-		this.estadoPagoDTO = estadoPagoDTO;
-		this.metodoPagoDTO = metodoPagoDTO;
-	}
 
+	public CompraDTO(UUID identificadorUuid, ProductoDTO productoDTO, LocalDate fechaDate, EstadoPagoDTO estadoPagoDTO,
+			TipoPagoDTO tipoPagoDTO) {
+		setEstadoPagoDTO(estadoPagoDTO);
+		setFechaDate(fechaDate);
+		setIdentificadorUuid(identificadorUuid);
+		setProductoDTO(productoDTO);
+setTipoPagoDTO(tipoPagoDTO);
+	}
 
 	public CompraDTO() {
-		super();
+		setEstadoPagoDTO(EstadoPagoDTO.create());
+		setFechaDate(UtilDate.DEFAULT_DATE);
+		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
+		setProductoDTO(ProductoDTO.create());
+setTipoPagoDTO(TipoPagoDTO.create());
 	}
-	
+
 	public CompraDTO create() {
 		return new CompraDTO();
 	}
-	
-	
-=======
-public class CompraDTO {
->>>>>>> e59f9511753ae4554cd6904fbcb0b53a7f37dccc
+
+	public final TipoPagoDTO getTipoPagoDTO() {
+		return tipoPagoDTO;
+	}
+
+	public final CompraDTO setTipoPagoDTO(TipoPagoDTO tipoPagoDTO) {
+		this.tipoPagoDTO = UtilObject.getDefault(tipoPagoDTO, TipoPagoDTO.create());
+		return this;
+	}
+
+	public final UUID getIdentificadorUuid() {
+		return identificadorUuid;
+	}
+
+	public final CompraDTO setIdentificadorUuid(UUID identificadorUuid) {
+		this.identificadorUuid = UtilUUID.getDefault(identificadorUuid);
+		return this;
+	}
+
+	public final ProductoDTO getProductoDTO() {
+		return productoDTO;
+	}
+
+	public final CompraDTO setProductoDTO(ProductoDTO productoDTO) {
+		this.productoDTO = UtilObject.getDefault(productoDTO, ProductoDTO.create());
+		return this;
+	}
+
+	public final LocalDate getFechaDate() {
+		return fechaDate;
+	}
+
+	public final CompraDTO setFechaDate(LocalDate fechaDate) {
+		this.fechaDate = UtilDate.getDefault(fechaDate);
+		return this;
+	}
+
+	public final EstadoPagoDTO getEstadoPagoDTO() {
+		return estadoPagoDTO;
+	}
+
+	public final CompraDTO setEstadoPagoDTO(EstadoPagoDTO estadoPagoDTO) {
+		this.estadoPagoDTO = UtilObject.getDefault(estadoPagoDTO, EstadoPagoDTO.create());
+		return this;
+	}
 
 }
