@@ -1,0 +1,17 @@
+2023-05-11 11:48:48 [Worker-12: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 12:03:39 [Worker-10: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 13:00:02 [Framework stop - Equinox Container: 3eed4c61-fb7a-443a-818d-053cad5d3836] WARN  eu.jsparrow.license.netlicensing.h - Could not find existing license in storage, saving and returning default license
+2023-05-11 13:00:03 [Framework stop - Equinox Container: 3eed4c61-fb7a-443a-818d-053cad5d3836] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 17:46:55 [Worker-7: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 18:33:26 [Framework stop - Equinox Container: 2a0720ce-fed9-4589-a73d-86ec401f5238] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 18:34:09 [Worker-8: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 18:41:50 [Framework stop - Equinox Container: 6c185dc3-5a41-4cb8-963b-ebe4087b8d0d] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 18:42:32 [Worker-9: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 18:55:39 [Framework stop - Equinox Container: fc5a8eaa-dd05-4160-963d-8b0d24741313] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 18:56:11 [Worker-8: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 18:56:50 [Framework stop - Equinox Container: bec64136-3f57-40d3-8c4c-89cf0b0bf222] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 18:57:22 [Worker-8: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 19:23:20 [Framework stop - Equinox Container: 668391a3-8de6-4429-b5bf-47fe5fee085d] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-11 19:23:51 [Worker-9: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow
+2023-05-11 20:03:18 [Framework stop - Equinox Container: 0ac1565b-7023-4c4c-a114-fa0e6f8946c6] INFO  eu.jsparrow.ui.a - Stopping jSparrow
+2023-05-18 16:58:54 [Worker-8: Executing the early startup extensions] INFO  eu.jsparrow.ui.a - Starting jSparrow

@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author usuario.207
+ *
+ */
+module PubliucoEntity {
+	requires java.base;
+}

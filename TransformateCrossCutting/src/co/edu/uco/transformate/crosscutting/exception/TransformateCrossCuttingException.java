@@ -25,7 +25,7 @@ public class TransformateCrossCuttingException extends TransformateException {
 	}
 
 	public static Exception createTechnicalException(String technicalTryInitTransaction) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 

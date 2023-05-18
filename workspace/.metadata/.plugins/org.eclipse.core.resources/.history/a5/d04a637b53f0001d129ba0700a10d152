@@ -1,0 +1,21 @@
+package co.edu.uco.publiuco.entity;
+
+import java.util.UUID;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "pais")
+public class PaisEntity {
+	
+	@Id
+	@Column (name = "codigo")
+	private UUID codigo;
+	@Column (name = "nombre")
+	private String nombre;
+}

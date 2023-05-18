@@ -1,0 +1,13 @@
+package co.edu.uco.publiuco.service.usecase.ciudad.implementation;
+
+public class RegistrarCiudadUseCaseImpl implements RegistrarCiudadUseCaseImpl {
+	
+	@Autowired
+	private CiudadRepository repository;
+	
+	@Override
+	public void execute (ciudadDomain domain) {
+		
+	}
+
+}

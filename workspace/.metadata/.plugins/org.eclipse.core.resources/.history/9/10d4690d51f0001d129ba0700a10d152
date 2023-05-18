@@ -1,0 +1,11 @@
+package co.edu.uco.publiuco.entity;
+
+import java.util.UUID;
+
+public class DepartamentoEntity {
+	
+	private UUID codigo;
+	private PaisEntity pais;
+	private String nombre;
+
+}

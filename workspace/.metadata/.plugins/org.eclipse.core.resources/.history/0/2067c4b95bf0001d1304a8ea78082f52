@@ -1,0 +1,11 @@
+package co.edu.uco.publiuco.service.domain;
+
+import java.util.UUID;
+
+public class DepartamentoDomain {
+	
+	private UUID codigo;
+	private PaisDTO pais;
+	private String nombre;
+
+}
