@@ -3,8 +3,9 @@ package co.edu.uco.transformate.dto;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
+import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
-import co.edu.uco.transformate.crosscutting.utils.*;
+
 
 public class TipoDocumentoDTO {
 
