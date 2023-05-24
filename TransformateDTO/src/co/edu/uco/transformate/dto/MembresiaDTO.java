@@ -46,8 +46,8 @@ public class MembresiaDTO {
 		
 	}
 
-	public static DescuentoDTO create() {
-		return new DescuentoDTO();
+	public static MembresiaDTO create() {
+		return new MembresiaDTO();
 	}
 
 	
