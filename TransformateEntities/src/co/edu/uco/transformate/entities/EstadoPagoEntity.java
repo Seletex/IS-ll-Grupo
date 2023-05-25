@@ -10,8 +10,17 @@ public final class EstadoPagoEntity {
 	private UUID identificador;
 	private String nombre;
 	
+	private static final EstadoPagoEntity DEFAULT_OBJECT = new EstadoPagoEntity();
 
-	public EstadoPagoEntity(UUID identificador, String nombre) {
+	public static EstadoPagoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static EstadoPagoEntity create(UUID identificador, String nombre) {
+		return new EstadoPagoEntity(identificador,nombre);
+	}
+
+	private EstadoPagoEntity(UUID identificador, String nombre) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -19,7 +28,7 @@ public final class EstadoPagoEntity {
 
 	}
 
-	public EstadoPagoEntity() {
+	private EstadoPagoEntity() {
 	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		
@@ -35,18 +44,18 @@ public final class EstadoPagoEntity {
 		return identificador;
 	}
 
-	public final EstadoPagoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final EstadoPagoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 }

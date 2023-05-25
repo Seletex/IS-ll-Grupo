@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilNumber;
@@ -18,8 +19,20 @@ public class GerenteEntity {
 	private String telefono;
 	private int salario;
 	private GimnasioEntity gimnasioEntity;
+	
+	private static final GerenteEntity DEFAULT_OBJECT = new GerenteEntity();
 
-	public GerenteEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity, final String identificacion,
+	public static GerenteEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static GerenteEntity create(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity,
+			final String identificacion, final String nombre, final String usuario, final String constraseña,
+			final String telefono, final int salario, final GimnasioEntity gimnasioEntity) {
+		return new GerenteEntity(identificador,tipoDocumentoEntity,identificacion,nombre,usuario,constraseña,telefono,salario,gimnasioEntity);
+	}
+
+	private GerenteEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity, final String identificacion,
 			final String nombre, final String usuario, final String constraseña, final String telefono,
 			final int salario, final GimnasioEntity gimnasioEntity) {
 		super();
@@ -35,7 +48,7 @@ public class GerenteEntity {
 
 	}
 
-	public GerenteEntity() {
+	private GerenteEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setTipoDocumentoDTO(TipoDocumentoEntity.create());
@@ -56,82 +69,81 @@ public class GerenteEntity {
 		return identificador;
 	}
 
-	public final GerenteEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		;
-		return this;
+	
 	}
 
 	public final TipoDocumentoEntity getTipoDocumentoDTO() {
 		return tipoDocumentoEntity;
 	}
 
-	public final GerenteEntity setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
+	private final void setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
 		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.create());
-		return this;
+	
 	}
 
 	public final String getIdentificacion() {
 		return identificacion;
 	}
 
-	public final GerenteEntity setIdentificacion(String identificacion) {
+	private final void setIdentificacion(String identificacion) {
 		this.identificacion = UtilText.getUtilText().applyTrim(identificacion);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final GerenteEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+
 	}
 
 	public final String getUsuario() {
 		return usuario;
 	}
 
-	public final GerenteEntity setUsuario(String usuario) {
+	private final void setUsuario(String usuario) {
 		this.usuario = UtilText.getUtilText().applyTrim(usuario);
-		return this;
+	
 	}
 
 	public final String getConstraseña() {
 		return constraseña;
 	}
 
-	public final GerenteEntity setConstraseña(String constraseña) {
+	private final void setConstraseña(String constraseña) {
 		this.constraseña = UtilText.getUtilText().applyTrim(constraseña);
-		return this;
+	
 	}
 
 	public final String getTelefono() {
 		return telefono;
 	}
 
-	public final GerenteEntity setTelefono(String telefono) {
+	private final void setTelefono(String telefono) {
 		this.telefono = UtilText.getUtilText().applyTrim(telefono);
-		return this;
+	
 	}
 
 	public final int getSalario() {
 		return salario;
 	}
 
-	public final GerenteEntity setSalario(int salario) {
+	private final void setSalario(int salario) {
 		this.salario = UtilNumber.getDefaultNumber();
-		return this;
+	
 	}
 
 	public final GimnasioEntity getGimnasioDTO() {
 		return gimnasioEntity;
 	}
 
-	public final GerenteEntity setGimnasioDTO(GimnasioEntity gimnasioEntity) {
+	private final void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
 		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
-		return this;
+	
 	}
 
 }

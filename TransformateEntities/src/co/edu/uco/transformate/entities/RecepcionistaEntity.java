@@ -18,6 +18,18 @@ public class RecepcionistaEntity {
 	private String telefono;
 	private int salario;
 	private GimnasioEntity gimnasioEntity;
+	
+	private static final RecepcionistaEntity DEFAULT_OBJECT = new RecepcionistaEntity();
+
+	public static RecepcionistaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static RecepcionistaEntity create(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity,
+			final String identificacion, final String nombre, final String usuario, final String constraseña,
+			final String telefono, final int salario, final GimnasioEntity gimnasioEntity) {
+		return new RecepcionistaEntity(identificador,tipoDocumentoEntity,identificacion,nombre,usuario,constraseña,telefono,salario,gimnasioEntity);
+	}
 
 	public RecepcionistaEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity, final String identificacion,
 			final String nombre, final String usuario, final String constraseña, final String telefono,

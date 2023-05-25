@@ -18,6 +18,8 @@ public class GerenteDTO {
 	private String telefono;
 	private int salario;
 	private GimnasioDTO gimnasioDTO;
+	
+	
 
 	public GerenteDTO(final UUID identificador, final TipoDocumentoDTO tipoDocumentoDTO, final String identificacion,
 			final String nombre, final String usuario, final String constraseña, final String telefono,

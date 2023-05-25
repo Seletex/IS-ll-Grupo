@@ -17,6 +17,17 @@ public class GimnasioEntity {
 	private String correoString;
 	private LocalDateTime horaAperturaDate;
 	private LocalDateTime horaCierreDate;
+	
+	private static final GimnasioEntity DEFAULT_OBJECT = new GimnasioEntity();
+
+	public static GimnasioEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static GimnasioEntity create(UUID identificador, String nombre, String descripcionString, String telefonoString,
+			String correoString, LocalDateTime horaAperturaDate, LocalDateTime horaCierreDate) {
+		return new GimnasioEntity(identificador,nombre,descripcionString,telefonoString,correoString,horaAperturaDate,horaCierreDate);
+	}
 
 	public GimnasioEntity(UUID identificador, String nombre, String descripcionString, String telefonoString,
 			String correoString, LocalDateTime horaAperturaDate, LocalDateTime horaCierreDate) {

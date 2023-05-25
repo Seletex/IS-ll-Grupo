@@ -16,9 +16,20 @@ public class EventoEntity {
 	private LocalDate fechaFinDate;
 	private GimnasioEntity gimnasioEntity;
 
-	public EventoEntity(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString, LocalDate fechaInicioDate,
-			LocalDate fechaFinDate) {
-		super();
+	private static final EventoEntity DEFAULT_OBJECT = new EventoEntity();
+
+	public static EventoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static EventoEntity create(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString,
+			LocalDate fechaInicioDate, LocalDate fechaFinDate) {
+		return new EventoEntity(gimnasioEntity,identificador,descripcionString,fechaInicioDate,fechaFinDate);
+	}
+
+	private EventoEntity(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString,
+			LocalDate fechaInicioDate, LocalDate fechaFinDate) {
+
 		setDescripcionString(descripcionString);
 		setFechaFinDate(fechaFinDate);
 		setFechaInicioDate(fechaInicioDate);
@@ -26,7 +37,7 @@ public class EventoEntity {
 		setIdentificador(identificador);
 	}
 
-	public EventoEntity() {
+	private EventoEntity() {
 		super();
 		setDescripcionString(UtilText.getDefaultValue());
 		setFechaFinDate(UtilDate.DEFAULT_DATE);
@@ -43,40 +54,45 @@ public class EventoEntity {
 		return identificador;
 	}
 
-	public EventoEntity setIdentificador(UUID identificador) {
-		this.identificador = UtilUUID.getDefault(identificador);return this;
+	private void setIdentificador(UUID identificador) {
+		this.identificador = UtilUUID.getDefault(identificador);
+	
 	}
 
 	public String getDescripcionString() {
 		return descripcionString;
 	}
 
-	public EventoEntity setDescripcionString(String descripcionString) {
-		this.descripcionString = UtilText.getUtilText().applyTrim(descripcionString);return this;
+	private void setDescripcionString(String descripcionString) {
+		this.descripcionString = UtilText.getUtilText().applyTrim(descripcionString);
+	
 	}
 
 	public LocalDate getFechaInicioDate() {
 		return fechaInicioDate;
 	}
 
-	public EventoEntity setFechaInicioDate(LocalDate fechaInicioDate) {
-		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);return this;
+	private void setFechaInicioDate(LocalDate fechaInicioDate) {
+		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);
+	
 	}
 
 	public LocalDate getFechaFinDate() {
 		return fechaFinDate;
 	}
 
-	public EventoEntity setFechaFinDate(LocalDate fechaFinDate) {
-		this.fechaFinDate = UtilDate.getDefault(fechaFinDate);return this;
+	private void setFechaFinDate(LocalDate fechaFinDate) {
+		this.fechaFinDate = UtilDate.getDefault(fechaFinDate);
+
 	}
 
 	public GimnasioEntity getGimnasioDTO() {
 		return gimnasioEntity;
 	}
 
-	public EventoEntity setGimnasioDTO(GimnasioEntity gimnasioEntity) {
-		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());return this;
+	private void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
+		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
+	
 	}
 
 }
