@@ -15,6 +15,8 @@ public class MembresiaEntity {
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	
+	
+	
 	private static final MembresiaEntity DEFAULT_OBJECT = new MembresiaEntity();
 
 	public static MembresiaEntity getDefaultObject() {

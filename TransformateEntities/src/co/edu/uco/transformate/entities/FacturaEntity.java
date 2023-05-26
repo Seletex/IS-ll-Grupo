@@ -53,7 +53,7 @@ public class FacturaEntity {
 		return identificador;
 	}
 
-	public void setIdentificador(UUID identificador) {
+	private void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
 	}
 

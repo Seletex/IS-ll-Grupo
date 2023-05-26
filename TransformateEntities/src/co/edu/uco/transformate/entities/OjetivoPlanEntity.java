@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -14,7 +15,19 @@ public class OjetivoPlanEntity {
 	private PlanEntrenamientoEntity planEntrenamientoEntity;
 	private ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity;
 
-	public OjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
+	private static final OjetivoPlanEntity DEFAULT_OBJECT = new OjetivoPlanEntity();
+
+	public static OjetivoPlanEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static OjetivoPlanEntity create(UUID identificador, String nombre,
+			ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity, String descripcion,
+			PlanEntrenamientoEntity planEntrenamientoEntity) {
+		return new OjetivoPlanEntity(identificador, nombre, objetivoEntrenamientoEntity,descripcion,planEntrenamientoEntity);
+	}
+
+	private OjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
 			String descripcion, PlanEntrenamientoEntity planEntrenamientoEntity) {
 		setDescripcion(descripcion);
 		setObjetivoEntrenamientoDTO(objetivoEntrenamientoEntity);
@@ -23,7 +36,7 @@ public class OjetivoPlanEntity {
 		setNombre(nombre);
 	}
 
-	public OjetivoPlanEntity() {
+	private OjetivoPlanEntity() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
@@ -40,45 +53,45 @@ public class OjetivoPlanEntity {
 		return descripcion;
 	}
 
-	public OjetivoPlanEntity setDescripcion(String descripcion) {
+	private void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+		
 	}
 
 	public PlanEntrenamientoEntity getPlanEntrenamientoDTO() {
 		return planEntrenamientoEntity;
 	}
 
-	public OjetivoPlanEntity setPlanEntrenamientoDTO(PlanEntrenamientoEntity planEntrenamientoEntity) {
+	private void setPlanEntrenamientoDTO(PlanEntrenamientoEntity planEntrenamientoEntity) {
 		this.planEntrenamientoEntity = UtilObject.getDefault(planEntrenamientoEntity, PlanEntrenamientoEntity.create());
-		return this;
+	
 	}
 
 	public ObjetivoEntrenamientoEntity getObjetivoEntrenamientoDTO() {
 		return objetivoEntrenamientoEntity;
 	}
 
-	public OjetivoPlanEntity setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity) {
+	private void setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity) {
 		this.objetivoEntrenamientoEntity = UtilObject.getDefault(objetivoEntrenamientoEntity,
 				ObjetivoEntrenamientoEntity.create());
-		return this;
+	
 	}
 
 	public final UUID getIdentificador() {
 		return identificador;
 	}
 
-	public final OjetivoPlanEntity setIdentificador(UUID identificador) {
+	private void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+		
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final OjetivoPlanEntity setNombre(String nombre) {
+	private void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+		
 	}
 }

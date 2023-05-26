@@ -29,7 +29,7 @@ public class GimnasioEntity {
 		return new GimnasioEntity(identificador,nombre,descripcionString,telefonoString,correoString,horaAperturaDate,horaCierreDate);
 	}
 
-	public GimnasioEntity(UUID identificador, String nombre, String descripcionString, String telefonoString,
+	private GimnasioEntity(UUID identificador, String nombre, String descripcionString, String telefonoString,
 			String correoString, LocalDateTime horaAperturaDate, LocalDateTime horaCierreDate) {
 		super();
 		setIdentificador(identificador);
@@ -41,7 +41,7 @@ public class GimnasioEntity {
 		setHoraCierreDate(horaCierreDate);
 	}
 
-	public GimnasioEntity() {
+	private GimnasioEntity() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcionString(UtilText.EMPTY);
@@ -60,64 +60,64 @@ public class GimnasioEntity {
 		return identificador;
 	}
 
-	public final GimnasioEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final GimnasioEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+
 	}
 
 	public final String getDescripcionString() {
 		return descripcionString;
 	}
 
-	public final GimnasioEntity setDescripcionString(String descripcionString) {
+	private final void setDescripcionString(String descripcionString) {
 		this.descripcionString = UtilText.getUtilText().applyTrim(descripcionString);
-		return this;
+
 	}
 
 	public final String getTelefonoString() {
 		return telefonoString;
 	}
 
-	public final GimnasioEntity setTelefonoString(String telefonoString) {
+	private final void setTelefonoString(String telefonoString) {
 		this.telefonoString = UtilText.getUtilText().applyTrim(telefonoString);
-		return this;
+
 	}
 
 	public final String getCorreoString() {
 		return correoString;
 	}
 
-	public final GimnasioEntity setCorreoString(String correoString) {
+	private final void setCorreoString(String correoString) {
 		this.correoString = UtilText.getUtilText().applyTrim(correoString);
-		return this;
+	
 	}
 
 	public final LocalDateTime getHoraAperturaDate() {
 		return horaAperturaDate;
 	}
 
-	public final GimnasioEntity setHoraAperturaDate(LocalDateTime horaAperturaDate) {
+	private final void setHoraAperturaDate(LocalDateTime horaAperturaDate) {
 		this.horaAperturaDate = UtilDate.getDefaultTime(horaAperturaDate);
-		return this;
+	
 	}
 
 	public final LocalDateTime getHoraCierreDate() {
 		return horaCierreDate;
 	}
 
-	public final GimnasioEntity setHoraCierreDate(LocalDateTime defaultDateTime) {
+	private final void setHoraCierreDate(LocalDateTime defaultDateTime) {
 		this.horaCierreDate = UtilDate.getDefaultTime(defaultDateTime);
 
-return this;
+
 	}
 
 }

@@ -12,8 +12,19 @@ public class HistorialPruebaFisicaEntity {
 	private UUID identificador;
 	private LocalDate fecha;
 	private String descripcion;
+	
+	private static final HistorialPruebaFisicaEntity DEFAULT_OBJECT = new HistorialPruebaFisicaEntity();
 
-	public HistorialPruebaFisicaEntity(UUID identificador, LocalDate fecha, String descripcion) {
+	public static HistorialPruebaFisicaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static HistorialPruebaFisicaEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion
+			) {
+		return new HistorialPruebaFisicaEntity(identificadorUuid,fechaDate,descripcion);
+	}
+
+	private HistorialPruebaFisicaEntity(UUID identificador, LocalDate fecha, String descripcion) {
 		super();
 		setFecha(fecha);
 		setDescripcion(descripcion);
@@ -21,7 +32,7 @@ public class HistorialPruebaFisicaEntity {
 
 	}
 
-	public HistorialPruebaFisicaEntity() {
+	private HistorialPruebaFisicaEntity() {
 		super();
 		setFecha(UtilDate.DEFAULT_DATE);
 		setDescripcion(UtilText.getDefaultValue());
@@ -37,27 +48,28 @@ public class HistorialPruebaFisicaEntity {
 		return identificador;
 	}
 
-	public HistorialPruebaFisicaEntity setIdentificador(UUID identificador) {
+	private void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public HistorialPruebaFisicaEntity setFecha(LocalDate fecha) {
+	private void setFecha(LocalDate fecha) {
 		this.fecha = UtilDate.getDefault(fecha);
-		return this;
+		
 	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public HistorialPruebaFisicaEntity setDescripcion(String descripcion) {
+	private void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+
+
 	}
 
 }

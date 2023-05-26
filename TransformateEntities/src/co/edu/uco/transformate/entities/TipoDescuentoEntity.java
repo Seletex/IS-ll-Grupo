@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,7 +12,18 @@ public class TipoDescuentoEntity {
 	private String nombre;
 	
 
-	public TipoDescuentoEntity(UUID identificador, String nombre) {
+	private static final TipoDescuentoEntity DEFAULT_OBJECT = new TipoDescuentoEntity();
+
+	public static TipoDescuentoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoDescuentoEntity create(UUID identificadorUuid,  String descripcion
+			) {
+		return new TipoDescuentoEntity(identificadorUuid,descripcion);
+	}
+	
+	private TipoDescuentoEntity(UUID identificador, String nombre) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -19,7 +31,7 @@ public class TipoDescuentoEntity {
 
 	}
 
-	public TipoDescuentoEntity() {
+	private TipoDescuentoEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);		
 		setNombre(UtilText.getDefaultValue());
@@ -34,18 +46,18 @@ public class TipoDescuentoEntity {
 		return identificador;
 	}
 
-	public final TipoDescuentoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoDescuentoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 

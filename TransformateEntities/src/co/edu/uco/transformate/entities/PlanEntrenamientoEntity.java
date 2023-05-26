@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -13,40 +14,50 @@ public class PlanEntrenamientoEntity {
 	private String descripcion;
 	private NivelDificultadEntity nivel;
 
-	public PlanEntrenamientoEntity(UUID identificador, String nombre, String descripcion, NivelDificultadEntity nivel) {
+	private static final PlanEntrenamientoEntity DEFAULT_OBJECT = new PlanEntrenamientoEntity();
+
+	public static PlanEntrenamientoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static PlanEntrenamientoEntity create(UUID identificador, String nombre, String descripcion,
+			NivelDificultadEntity nivel) {
+		return new PlanEntrenamientoEntity(identificador, nombre, descripcion, nivel);
+	}
+
+	private PlanEntrenamientoEntity(UUID identificador, String nombre, String descripcion, NivelDificultadEntity nivel) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
+		setDescripcion(descripcion);
+		setNivel(nivel);
 
 	}
 
-	public PlanEntrenamientoEntity() {
+	private PlanEntrenamientoEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-
+		setDescripcion(UtilText.EMPTY);
 		setNombre(UtilText.getDefaultValue());
-
+		setNivel(NivelDificultadEntity.create());
 	}
-	
-	
-	
 
 	public final String getDescripcion() {
 		return descripcion;
 	}
 
-	public final PlanEntrenamientoEntity setDescripcion(String descripcion) {
+	private final void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+	
 	}
 
 	public final NivelDificultadEntity getNivel() {
 		return nivel;
 	}
 
-	public final PlanEntrenamientoEntity setNivel(NivelDificultadEntity nivel) {
-		this.nivel =  UtilObject.getDefault(nivel, NivelDificultadEntity.create());
-		return this;
+	private final void setNivel(NivelDificultadEntity nivel) {
+		this.nivel = UtilObject.getDefault(nivel, NivelDificultadEntity.create());
+	
 	}
 
 	public static PlanEntrenamientoEntity create() {
@@ -57,18 +68,18 @@ public class PlanEntrenamientoEntity {
 		return identificador;
 	}
 
-	public final PlanEntrenamientoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final PlanEntrenamientoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 }

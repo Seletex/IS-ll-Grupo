@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,14 +12,26 @@ public class TipoDocumentoEntity {
 
 	private UUID identificador;
 	private String nombre;
+	
 
-	public TipoDocumentoEntity(UUID identificador, String nombre) {
+	private static final TipoDocumentoEntity DEFAULT_OBJECT = new TipoDocumentoEntity();
+
+	public static TipoDocumentoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoDocumentoEntity create(UUID identificadorUuid,  String descripcion
+			) {
+		return new TipoDocumentoEntity(identificadorUuid,descripcion);
+	}
+
+	private TipoDocumentoEntity(UUID identificador, String nombre) {
 
 		setIdentificador(identificador);
 		setNombre(nombre);
 	}
 
-	public TipoDocumentoEntity() {
+	private TipoDocumentoEntity() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 
@@ -32,18 +45,18 @@ public class TipoDocumentoEntity {
 		return identificador;
 	}
 
-	public final TipoDocumentoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoDocumentoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 }

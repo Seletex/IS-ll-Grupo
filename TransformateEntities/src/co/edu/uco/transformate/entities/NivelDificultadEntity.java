@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,15 +12,26 @@ public class NivelDificultadEntity {
 	private String nombre;
 	
 
-	public NivelDificultadEntity(UUID identificador, String nombre) {
-		super();
+	private static final NivelDificultadEntity DEFAULT_OBJECT = new NivelDificultadEntity();
+
+	public static NivelDificultadEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static NivelDificultadEntity create(UUID identificador, String nombre) {
+		return new NivelDificultadEntity(identificador,nombre);
+	}
+	
+
+	private NivelDificultadEntity(UUID identificador, String nombre) {
+	
 		setIdentificador(identificador);
 		setNombre(nombre);
 		
 
 	}
 
-	public NivelDificultadEntity() {
+	private NivelDificultadEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		
@@ -35,18 +47,18 @@ public class NivelDificultadEntity {
 		return identificador;
 	}
 
-	public final NivelDificultadEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final NivelDificultadEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+		
 	}
 
 }

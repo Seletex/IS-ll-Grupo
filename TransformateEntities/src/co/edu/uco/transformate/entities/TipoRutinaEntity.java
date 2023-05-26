@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,9 +12,21 @@ public class TipoRutinaEntity {
 	private String nombre;
 	private String descripcion;
 	
+
+	private static final TipoRutinaEntity DEFAULT_OBJECT = new TipoRutinaEntity();
+
+	public static TipoRutinaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoRutinaEntity create(UUID identificadorUuid, String fechaDate, String descripcion
+			) {
+		return new TipoRutinaEntity(identificadorUuid,fechaDate,descripcion);
+	}
+	
 	
 
-	public TipoRutinaEntity(UUID identificador, String nombre, String descripcion) {
+	private TipoRutinaEntity(UUID identificador, String nombre, String descripcion) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -22,7 +35,7 @@ public class TipoRutinaEntity {
 
 	}
 
-	public TipoRutinaEntity() {
+	private TipoRutinaEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setDescripcion(UtilText.EMPTY);
@@ -34,9 +47,9 @@ public class TipoRutinaEntity {
 		return descripcion;
 	}
 
-	public final TipoRutinaEntity setDescripcion(String descripcion) {
+	private final void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+	
 	}
 
 	
@@ -48,18 +61,18 @@ public class TipoRutinaEntity {
 		return identificador;
 	}
 
-	public final TipoRutinaEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+		
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoRutinaEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 }

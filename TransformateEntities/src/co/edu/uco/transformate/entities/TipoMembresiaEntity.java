@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -9,14 +10,26 @@ public class TipoMembresiaEntity {
 
 	private UUID identificador;
 	private String nombre;
+	
 
-	public TipoMembresiaEntity(UUID identificador, String nombre) {
+	private static final TipoMembresiaEntity DEFAULT_OBJECT = new TipoMembresiaEntity();
+
+	public static TipoMembresiaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoMembresiaEntity create(UUID identificadorUuid, String descripcion
+			) {
+		return new TipoMembresiaEntity(identificadorUuid,descripcion);
+	}
+
+	private TipoMembresiaEntity(UUID identificador, String nombre) {
 
 		setIdentificador(identificador);
 		setNombre(nombre);
 	}
 
-	public TipoMembresiaEntity() {
+	private TipoMembresiaEntity() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 
@@ -30,17 +43,17 @@ public class TipoMembresiaEntity {
 		return identificador;
 	}
 
-	public final TipoMembresiaEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoMembresiaEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+		
 	}
 }

@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -11,16 +12,28 @@ public class TipoPagoEntity {
 	private String nombre;
 	
 
-	public TipoPagoEntity(UUID identificador, String nombre) {
-		super();
+	private static final TipoPagoEntity DEFAULT_OBJECT = new TipoPagoEntity();
+
+	public static TipoPagoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoPagoEntity create(UUID identificadorUuid, String descripcion
+			) {
+		return new TipoPagoEntity(identificadorUuid,descripcion);
+	}
+	
+
+	private TipoPagoEntity(UUID identificador, String nombre) {
+		
 		setIdentificador(identificador);
 		setNombre(nombre);
 		
 
 	}
 
-	public TipoPagoEntity() {
-		super();
+	private TipoPagoEntity() {
+	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		
 		setNombre(UtilText.getDefaultValue());
@@ -35,18 +48,18 @@ public class TipoPagoEntity {
 		return identificador;
 	}
 
-	public final TipoPagoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoPagoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 	

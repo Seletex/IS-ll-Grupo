@@ -1,6 +1,7 @@
 package co.edu.uco.transformate.entities;
 
 import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilDate;
@@ -8,54 +9,79 @@ import co.edu.uco.transformate.crosscutting.utils.UtilText;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
 public class HistorialNotaMedicaEntity {
-	
+
 	private UUID identificadorUuid;
 	private LocalDate fechaDate;
 	private String descripcion;
 	private String nombreMiembroString;
-	public HistorialNotaMedicaEntity(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
+	
+	private static final HistorialNotaMedicaEntity DEFAULT_OBJECT = new HistorialNotaMedicaEntity();
+
+	public static HistorialNotaMedicaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static HistorialNotaMedicaEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
+			String nombreMiembroString) {
+		return new HistorialNotaMedicaEntity(identificadorUuid,fechaDate,descripcion,nombreMiembroString);
+	}
+
+	private HistorialNotaMedicaEntity(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
 			String nombreMiembroString) {
 		super();
 		setDescripcion(descripcion);
 		setFechaDate(fechaDate);
 		setIdentificadorUuid(identificadorUuid);
 		setNombreMiembroString(nombreMiembroString);
-	
+
 	}
-	public HistorialNotaMedicaEntity() {
+
+	private HistorialNotaMedicaEntity() {
 		super();
 		setDescripcion(UtilText.getDefaultValue());
 		setFechaDate(UtilDate.DEFAULT_DATE);
 		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
 		setNombreMiembroString(UtilText.EMPTY);
 	}
-	
+
 	public static HistorialNotaMedicaEntity create() {
 		return new HistorialNotaMedicaEntity();
 	}
+
 	public UUID getIdentificadorUuid() {
 		return identificadorUuid;
 	}
-	public HistorialNotaMedicaEntity setIdentificadorUuid(UUID identificadorUuid) {
-		this.identificadorUuid = UtilUUID.getDefault(identificadorUuid);return this;
+
+	private void  setIdentificadorUuid(UUID identificadorUuid) {
+		this.identificadorUuid = UtilUUID.getDefault(identificadorUuid);
+
 	}
+
 	public LocalDate getFechaDate() {
 		return fechaDate;
 	}
-	public HistorialNotaMedicaEntity setFechaDate(LocalDate fecha) {
-		this.fechaDate = UtilDate.getDefault(fecha);return this;
+
+	private void  setFechaDate(LocalDate fecha) {
+		this.fechaDate = UtilDate.getDefault(fecha);
+
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
-	public HistorialNotaMedicaEntity setDescripcion(String descripcion) {
-		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);return this;
+
+	private void  setDescripcion(String descripcion) {
+		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
+
 	}
+
 	public String getNombreMiembroString() {
 		return nombreMiembroString;
 	}
-	public HistorialNotaMedicaEntity setNombreMiembroString(String nombreMiembroString) {
-		this.nombreMiembroString = UtilText.getUtilText().applyTrim(nombreMiembroString);return this;
+
+	private void  setNombreMiembroString(String nombreMiembroString) {
+		this.nombreMiembroString = UtilText.getUtilText().applyTrim(nombreMiembroString);
+		
 	}
 
 }

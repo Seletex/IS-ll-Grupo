@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilNumber;
@@ -13,8 +14,20 @@ public class ProductoEntity {
 	private String nombre;
 	private String descripcion;
 	private int cantidad;
+	
 
-	public ProductoEntity(UUID identificador, String nombre, String descripcion, int cantidad) {
+	private static final ProductoEntity DEFAULT_OBJECT = new ProductoEntity();
+
+	public static ProductoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static ProductoEntity create(UUID identificador, String nombre, String descripcion, int cantidad
+			) {
+		return new ProductoEntity(identificador,nombre,descripcion,cantidad);
+	}
+
+	private ProductoEntity(UUID identificador, String nombre, String descripcion, int cantidad) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -24,7 +37,7 @@ public class ProductoEntity {
 	}
 
 	
-	public ProductoEntity() {
+	private ProductoEntity() {
 	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setCantidad(UtilNumber.ZERO);
@@ -40,36 +53,36 @@ public class ProductoEntity {
 		return identificador;
 	}
 
-	public final ProductoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final ProductoEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+
 	}
 
 	public final String getDescripcion() {
 		return descripcion;
 	}
 
-	public final ProductoEntity setDescripcion(String descripcion) {
+	private final void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+		
 	}
 
 	public final int getCantidad() {
 		return cantidad;
 	}
 
-	public final ProductoEntity setCantidad(int cantidad) {
+	private final void setCantidad(int cantidad) {
 		this.cantidad = UtilNumber.getDefaultNumber(cantidad);
-		return this;
+		
 	}
 
 	

@@ -3,7 +3,7 @@ package co.edu.uco.transformate.entities;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
+
 
 import co.edu.uco.transformate.crosscutting.utils.UtilDate;
 import co.edu.uco.transformate.crosscutting.utils.UtilNumber;
@@ -17,8 +17,20 @@ public class InformeFinancieroEntity {
 	private EgresoEntity egreso;
 	private float beneficio;
 	private float perdida;
-	public InformeFinancieroEntity(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate, EgresoEntity egreso,
-			float beneficio, float perdida) {
+
+	private static final InformeFinancieroEntity DEFAULT_OBJECT = new InformeFinancieroEntity();
+
+	public static InformeFinancieroEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static InformeFinancieroEntity create(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate,
+			EgresoEntity egreso, float beneficio, float perdida) {
+		return new InformeFinancieroEntity(identificador, fechaInicioDate, fechaFinDate, egreso, perdida, beneficio);
+	}
+
+	private InformeFinancieroEntity(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate,
+			EgresoEntity egreso, float beneficio, float perdida) {
 		super();
 		setBeneficio(beneficio);
 		setEgreso(egreso);
@@ -26,9 +38,10 @@ public class InformeFinancieroEntity {
 		setFechaInicioDate(fechaInicioDate);
 		setIdentificador(identificador);
 		setPerdida(perdida);
-		
+
 	}
-	public InformeFinancieroEntity() {
+
+	private InformeFinancieroEntity() {
 		super();
 		setBeneficio(UtilNumber.ZERO);
 		setEgreso(EgresoEntity.create());
@@ -37,46 +50,64 @@ public class InformeFinancieroEntity {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setPerdida(UtilNumber.ZERO);
 	}
-	
+
 	public static InformeFinancieroEntity create() {
 		return new InformeFinancieroEntity();
 	}
+
 	public UUID getIdentificador() {
 		return identificador;
 	}
-	public InformeFinancieroEntity setIdentificador(UUID identificador) {
-		this.identificador = UtilUUID.getDefault(identificador);return this;
+
+	private void setIdentificador(UUID identificador) {
+		this.identificador = UtilUUID.getDefault(identificador);
+	
 	}
+
 	public LocalDate getFechaInicioDate() {
 		return fechaInicioDate;
 	}
-	public InformeFinancieroEntity setFechaInicioDate(LocalDate fechaInicioDate) {
-		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);;return this;
+
+	private void setFechaInicioDate(LocalDate fechaInicioDate) {
+		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);
+		
+		
 	}
+
 	public LocalDate getFechaFinDate() {
 		return fechaFinDate;
 	}
+
 	public InformeFinancieroEntity setFechaFinDate(LocalDate fechaFinDate) {
-		this.fechaFinDate =  UtilDate.getDefault(fechaFinDate);return this;
+		this.fechaFinDate = UtilDate.getDefault(fechaFinDate);
+		return this;
 	}
+
 	public EgresoEntity getEgreso() {
 		return egreso;
 	}
+
 	public InformeFinancieroEntity setEgreso(EgresoEntity egreso) {
-		this.egreso = UtilObject.getDefault(egreso,EgresoEntity.create());return this;
+		this.egreso = UtilObject.getDefault(egreso, EgresoEntity.create());
+		return this;
 	}
+
 	public float getBeneficio() {
 		return beneficio;
 	}
+
 	public InformeFinancieroEntity setBeneficio(float beneficio) {
-		this.beneficio = (float) UtilNumber.getDefaultNumber(beneficio);return this;
+		this.beneficio = (float) UtilNumber.getDefaultNumber(beneficio);
+		return this;
 	}
+
 	public float getPerdida() {
 		return perdida;
 	}
+
 	public InformeFinancieroEntity setPerdida(float perdida) {
-		this.perdida = (float) UtilNumber.getDefaultNumber(perdida);return this;
+		this.perdida = (float) UtilNumber.getDefaultNumber(perdida);
+		return this;
 	}
 
-	
 }

@@ -14,19 +14,19 @@ public class HistorialClaseEntity {
 	private LocalDateTime horaInicio;
 	private LocalDateTime horaFin;
 	private String nombreEntrenador;
-	
-	private static final GimnasioEntity DEFAULT_OBJECT = new GimnasioEntity();
 
-	public static GimnasioEntity getDefaultObject() {
+	private static final HistorialClaseEntity DEFAULT_OBJECT = new HistorialClaseEntity();
+
+	public static HistorialClaseEntity getDefaultObject() {
 		return DEFAULT_OBJECT;
 	}
 
-	public static GimnasioEntity create(UUID identificador, String nombre, String descripcionString, String telefonoString,
-			String correoString, LocalDateTime horaAperturaDate, LocalDateTime horaCierreDate) {
-		return new GimnasioEntity(identificador,nombre,descripcionString,telefonoString,correoString,horaAperturaDate,horaCierreDate);
+	public static HistorialClaseEntity create(UUID identificador, LocalDate fecha, LocalDateTime horaInicio,
+			LocalDateTime horaFin, String nombreEntrenador) {
+		return new HistorialClaseEntity(identificador,fecha,horaInicio,horaFin,nombreEntrenador);
 	}
-	
-	public HistorialClaseEntity(UUID identificador, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin,
+
+private  HistorialClaseEntity(UUID identificador, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin,
 			String nombreEntrenador) {
 		super();
 		setFecha(fecha);
@@ -34,10 +34,10 @@ public class HistorialClaseEntity {
 		setHoraInicio(horaInicio);
 		setIdentificador(identificador);
 		setNombreEntrenador(nombreEntrenador);
-		
+
 	}
-	
-	public HistorialClaseEntity() {
+
+private HistorialClaseEntity() {
 		super();
 		setFecha(UtilDate.DEFAULT_DATE);
 		setHoraFin(UtilDate.DEFAULT_DATE_TIME);
@@ -45,7 +45,7 @@ public class HistorialClaseEntity {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombreEntrenador(UtilText.getDefaultValue());
 	}
-	
+
 	public static HistorialClaseEntity create() {
 		return new HistorialClaseEntity();
 	}
@@ -53,33 +53,46 @@ public class HistorialClaseEntity {
 	public UUID getIdentificador() {
 		return identificador;
 	}
-	public HistorialClaseEntity setIdentificador(UUID identificador) {
-		this.identificador = UtilUUID.getDefault(identificador);return this;
+
+	private void setIdentificador(UUID identificador) {
+		this.identificador = UtilUUID.getDefault(identificador);
+	
 	}
+
 	public LocalDate getFecha() {
 		return fecha;
 	}
-	public HistorialClaseEntity setFecha(LocalDate fecha) {
-		this.fecha = UtilDate.getDefault(fecha);return this;
+
+	private void setFecha(LocalDate fecha) {
+		this.fecha = UtilDate.getDefault(fecha);
+		
 	}
+
 	public LocalDateTime getHoraInicio() {
 		return horaInicio;
 	}
-	public HistorialClaseEntity setHoraInicio(LocalDateTime horaInicio) {
-		this.horaInicio = UtilDate.getDefaultTime(horaInicio);return this;
+
+	private void setHoraInicio(LocalDateTime horaInicio) {
+		this.horaInicio = UtilDate.getDefaultTime(horaInicio);
+	
 	}
+
 	public LocalDateTime getHoraFin() {
 		return horaFin;
 	}
-	public HistorialClaseEntity setHoraFin(LocalDateTime horaFin) {
-		this.horaFin = UtilDate.getDefaultTime(horaFin);return this;
+
+	private void setHoraFin(LocalDateTime horaFin) {
+		this.horaFin = UtilDate.getDefaultTime(horaFin);
+	
 	}
+
 	public String getNombreEntrenador() {
 		return nombreEntrenador;
 	}
-	public HistorialClaseEntity setNombreEntrenador(String nombreEntrenador) {
-		this.nombreEntrenador = UtilText.getUtilText().applyTrim(nombreEntrenador);return this;
+
+	private void setNombreEntrenador(String nombreEntrenador) {
+		this.nombreEntrenador = UtilText.getUtilText().applyTrim(nombreEntrenador);
+		
 	}
-	
-	
+
 }

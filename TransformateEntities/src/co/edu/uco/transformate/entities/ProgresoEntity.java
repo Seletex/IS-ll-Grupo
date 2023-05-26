@@ -19,7 +19,19 @@ public class ProgresoEntity {
 	private MiembroEntity miembroEntity;
 	private String descripcion;
 	
-	public ProgresoEntity(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha) {
+
+	private static final ProgresoEntity DEFAULT_OBJECT = new ProgresoEntity();
+
+	public static ProgresoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static ProgresoEntity create(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha
+			) {
+		return new ProgresoEntity(identificador,nombre,miembroEntity,fecha);
+	}
+	
+	private ProgresoEntity(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha) {
 		super();
 		setIdentificador(identificador);
 		setDescripcion(nombre);
@@ -27,7 +39,7 @@ public class ProgresoEntity {
 setFecha(fecha);
 	}
 
-	public ProgresoEntity() {
+	private ProgresoEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setMiembroDTO(MiembroEntity.create());
@@ -43,33 +55,33 @@ setFecha(fecha);
 		return identificador;
 	}
 
-	public final ProgresoEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+		
 	}
 
 	public final String getDescripcion() {
 		return descripcion;
 	}
 
-	public final ProgresoEntity setDescripcion(String nombre) {
+	private void setDescripcion(String nombre) {
 		this.descripcion = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 	public MiembroEntity getMiembroDTO() {
 		return miembroEntity;
 	}
 
-	public ProgresoEntity setMiembroDTO(MiembroEntity miembroEntity) {
-		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.create());return this;
+	private void setMiembroDTO(MiembroEntity miembroEntity) {
+		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.create());
 	}
 
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	private void setFecha(LocalDate fecha) {
 		this.fecha = UtilDate.getDefault(fecha);
 	}
 

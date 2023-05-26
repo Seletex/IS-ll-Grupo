@@ -18,9 +18,25 @@ public class MiembroEntity {
 	private PruebaFisicaEntity prueba;
 	private ObjetivoEntrenamientoEntity objetivo;
 	private TipoMiembroEntity tipoMiembroEntity;
-	public MiembroEntity(MembresiaEntity membresiaEntity, UUID identificador, String nombre, TipoDocumentoEntity tipoDocumentoEntity,
-			String identificacion, LocalDate fechaNacimiento, String correo, String telefono, PruebaFisicaEntity prueba,
-			ObjetivoEntrenamientoEntity objetivo, TipoMiembroEntity tipoMiembroEntity) {
+
+	private static final MiembroEntity DEFAULT_OBJECT = new MiembroEntity();
+
+	public static MiembroEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static MiembroEntity create(MembresiaEntity membresiaEntity, UUID identificador, String nombre,
+			TipoDocumentoEntity tipoDocumentoEntity, String identificacion, LocalDate fechaNacimiento, String correo,
+			String telefono, PruebaFisicaEntity prueba, ObjetivoEntrenamientoEntity objetivo,
+			TipoMiembroEntity tipoMiembroEntity) {
+		return new MiembroEntity(membresiaEntity, identificador, nombre, tipoDocumentoEntity, identificacion,
+				fechaNacimiento, correo, telefono, prueba, objetivo, tipoMiembroEntity);
+	}
+
+	private MiembroEntity(MembresiaEntity membresiaEntity, UUID identificador, String nombre,
+			TipoDocumentoEntity tipoDocumentoEntity, String identificacion, LocalDate fechaNacimiento, String correo,
+			String telefono, PruebaFisicaEntity prueba, ObjetivoEntrenamientoEntity objetivo,
+			TipoMiembroEntity tipoMiembroEntity) {
 		super();
 		setCorreo(correo);
 		setFechaNacimiento(fechaNacimiento);
@@ -33,9 +49,10 @@ public class MiembroEntity {
 		setTelefono(telefono);
 		setTipoDocumentoDTO(tipoDocumentoEntity);
 		setTipoMiembroDTO(tipoMiembroEntity);
-		
+
 	}
-	public MiembroEntity() {
+
+	private MiembroEntity() {
 		super();
 		setCorreo(correo);
 		setFechaNacimiento(fechaNacimiento);
@@ -49,75 +66,108 @@ public class MiembroEntity {
 		setTipoDocumentoDTO(tipoDocumentoEntity);
 		setTipoMiembroDTO(tipoMiembroEntity);
 	}
-	
+
 	public static MiembroEntity create() {
 		return new MiembroEntity();
 	}
+
 	public MembresiaEntity getMembresiaDTO() {
 		return membresiaEntity;
 	}
-	public MiembroEntity setMembresiaDTO(MembresiaEntity membresiaEntity) {
-		this.membresiaEntity = (MembresiaEntity) UtilObject.getDefault(membresiaEntity, MembresiaEntity.create());return this;
+
+	private void setMembresiaDTO(MembresiaEntity membresiaEntity) {
+		this.membresiaEntity = (MembresiaEntity) UtilObject.getDefault(membresiaEntity, MembresiaEntity.create());
+	
 	}
+
 	public UUID getIdentificador() {
 		return identificador;
 	}
-	public MiembroEntity setIdentificador(UUID identificador) {
-		this.identificador = identificador;return this;
+
+	private void setIdentificador(UUID identificador) {
+		this.identificador = identificador;
+		
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
-	public MiembroEntity setNombre(String nombre) {
-		this.nombre = nombre;return this;
+
+	private void setNombre(String nombre) {
+		this.nombre = nombre;
+		
 	}
+
 	public TipoDocumentoEntity getTipoDocumentoDTO() {
 		return tipoDocumentoEntity;
 	}
-	public MiembroEntity setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
-		this.tipoDocumentoEntity = UtilObject.getDefault(null, null);return this;
+
+	private void setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
+		this.tipoDocumentoEntity = UtilObject.getDefault(null, null);
+		
 	}
+
 	public String getIdentificacion() {
 		return identificacion;
 	}
-	public MiembroEntity setIdentificacion(String identificacion) {
-		this.identificacion = identificacion;return this;
+
+	private void setIdentificacion(String identificacion) {
+		this.identificacion = identificacion;
+	
 	}
+
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public MiembroEntity setFechaNacimiento(LocalDate fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;return this;
+
+	private void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+		
 	}
+
 	public String getCorreo() {
 		return correo;
 	}
-	public MiembroEntity setCorreo(String correo) {
-		this.correo = correo;return this;
+
+	private void setCorreo(String correo) {
+		this.correo = correo;
+	
 	}
+
 	public String getTelefono() {
 		return telefono;
 	}
-	public MiembroEntity setTelefono(String telefono) {
-		this.telefono = telefono;return this;
+
+	private void setTelefono(String telefono) {
+		this.telefono = telefono;
+		
 	}
+
 	public PruebaFisicaEntity getPrueba() {
 		return prueba;
 	}
-	public MiembroEntity setPrueba(PruebaFisicaEntity prueba) {
-		this.prueba = UtilObject.getDefault(null, null);return this;
+
+	private void setPrueba(PruebaFisicaEntity prueba) {
+		this.prueba = UtilObject.getDefault(null, null);
+	
 	}
+
 	public ObjetivoEntrenamientoEntity getObjetivo() {
 		return objetivo;
 	}
-	public MiembroEntity setObjetivo(ObjetivoEntrenamientoEntity objetivo) {
-		this.objetivo = UtilObject.getDefault(null, null);return this;
+
+	private void setObjetivo(ObjetivoEntrenamientoEntity objetivo) {
+		this.objetivo = UtilObject.getDefault(null, null);
+		
 	}
+
 	public TipoMiembroEntity getTipoMiembroDTO() {
 		return tipoMiembroEntity;
 	}
-	public MiembroEntity setTipoMiembroDTO(TipoMiembroEntity tipoMiembroEntity) {
-		this.tipoMiembroEntity = UtilObject.getDefault(null, null);return this;
+
+	private void setTipoMiembroDTO(TipoMiembroEntity tipoMiembroEntity) {
+		this.tipoMiembroEntity = UtilObject.getDefault(null, null);
+		
 	}
 
 }

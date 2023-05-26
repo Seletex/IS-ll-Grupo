@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -11,6 +12,18 @@ public class NotaMedicaEntity {
 	private UUID identificador;
 	private MiembroEntity miembroEntity;
 	private String descripcion;
+	
+
+	private static final NotaMedicaEntity DEFAULT_OBJECT = new NotaMedicaEntity();
+
+	public static NotaMedicaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static NotaMedicaEntity create(UUID identificador, String nombre,MiembroEntity miembroEntity
+			) {
+		return new NotaMedicaEntity(identificador,nombre,miembroEntity);
+	}
 	
 	public NotaMedicaEntity(UUID identificador, String nombre,MiembroEntity miembroEntity) {
 		super();

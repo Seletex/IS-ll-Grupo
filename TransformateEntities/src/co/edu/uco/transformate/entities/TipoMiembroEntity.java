@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -10,8 +11,20 @@ public class TipoMiembroEntity {
 	private UUID identificador;
 	private String nombre;
 	private TipoDescuentoEntity tipoDescuentoEntity;
+	
 
-	public TipoMiembroEntity(UUID identificador, String nombre) {
+	private static final TipoMiembroEntity DEFAULT_OBJECT = new TipoMiembroEntity();
+
+	public static TipoMiembroEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static TipoMiembroEntity create(UUID identificadorUuid, String descripcion,TipoDescuentoEntity tipoDescuentoEntity
+			) {
+		return new TipoMiembroEntity(identificadorUuid,descripcion,tipoDescuentoEntity);
+	}
+
+	private TipoMiembroEntity(UUID identificador, String nombre, TipoDescuentoEntity tipoDescuentoEntity) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -19,7 +32,7 @@ public class TipoMiembroEntity {
 
 	}
 
-	public TipoMiembroEntity() {
+	private TipoMiembroEntity() {
 		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setTipoDescuentoDTO(TipoDescuentoEntity.create());
@@ -31,9 +44,9 @@ public class TipoMiembroEntity {
 		return tipoDescuentoEntity;
 	}
 
-	public final TipoMiembroEntity setTipoDescuentoDTO(TipoDescuentoEntity tipoDescuentoEntity) {
+	private final void setTipoDescuentoDTO(TipoDescuentoEntity tipoDescuentoEntity) {
 		this.tipoDescuentoEntity = UtilObject.getDefault(tipoDescuentoEntity, TipoDescuentoEntity.create());;
-		return this;
+	
 	}
 
 	public static TipoMiembroEntity create() {
@@ -44,18 +57,18 @@ public class TipoMiembroEntity {
 		return identificador;
 	}
 
-	public final TipoMiembroEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final TipoMiembroEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+	
 	}
 
 }

@@ -15,8 +15,19 @@ public class HistorialProgresoEntity {
 	private String descripcion;
 
 	private String nombreMiembro;
+	
+	private static final HistorialProgresoEntity DEFAULT_OBJECT = new HistorialProgresoEntity();
 
-	public HistorialProgresoEntity(UUID identificador, LocalDate fecha, String descripcion, String nombreMiembro) {
+	public static HistorialProgresoEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static HistorialProgresoEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
+			String nombreMiembroString) {
+		return new HistorialProgresoEntity(identificadorUuid,fechaDate,descripcion,nombreMiembroString);
+	}
+
+	private HistorialProgresoEntity(UUID identificador, LocalDate fecha, String descripcion, String nombreMiembro) {
 		super();
 		setFecha(fecha);
 		setDescripcion(descripcion);
@@ -25,7 +36,7 @@ public class HistorialProgresoEntity {
 
 	}
 
-	public HistorialProgresoEntity() {
+	private HistorialProgresoEntity() {
 		super();
 		setFecha(UtilDate.DEFAULT_DATE);
 		setDescripcion(UtilText.EMPTY);
@@ -41,35 +52,35 @@ public class HistorialProgresoEntity {
 		return identificador;
 	}
 
-	public HistorialProgresoEntity setIdentificador(UUID identificador) {
+	private void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+	
 	}
 
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public HistorialProgresoEntity setFecha(LocalDate fecha) {
+	private void setFecha(LocalDate fecha) {
 		this.fecha = UtilDate.getDefault(fecha);
-		return this;
+	
 	}
 
 	public String getNombreMiembro() {
 		return nombreMiembro;
 	}
 
-	public HistorialProgresoEntity setNombreMiembro(String nombreMiembro) {
+	private void setNombreMiembro(String nombreMiembro) {
 		this.nombreMiembro = UtilText.getUtilText().applyTrim(nombreMiembro);
-		return this;
+	
 	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public HistorialProgresoEntity setDescripcion(String descripcion) {
+	private void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+	
 	}
 }

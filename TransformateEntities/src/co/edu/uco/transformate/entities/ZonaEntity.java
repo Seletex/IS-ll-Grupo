@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -12,8 +13,20 @@ public class ZonaEntity {
 	private String nombre;
 	private String descripcion;
 	private GimnasioEntity gimnasioEntity;
+	
 
-	public ZonaEntity(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity) {
+	private static final ZonaEntity DEFAULT_OBJECT = new ZonaEntity();
+
+	public static ZonaEntity getDefaultObject() {
+		return DEFAULT_OBJECT;
+	}
+
+	public static ZonaEntity create(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity
+			) {
+		return new ZonaEntity(identificador,nombre,descripcion, gimnasioEntity);
+	}
+
+	private ZonaEntity(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -22,7 +35,7 @@ public class ZonaEntity {
 
 	}
 
-	public ZonaEntity() {
+	private ZonaEntity() {
 		super();
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setGimnasioDTO(GimnasioEntity.create());
@@ -38,36 +51,36 @@ public class ZonaEntity {
 		return identificador;
 	}
 
-	public final ZonaEntity setIdentificador(UUID identificador) {
+	private final void setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		return this;
+		 
 	}
 
 	public final String getNombre() {
 		return nombre;
 	}
 
-	public final ZonaEntity setNombre(String nombre) {
+	private final void setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
-		return this;
+		
 	}
 
 	public final String getDescripcion() {
 		return descripcion;
 	}
 
-	public final ZonaEntity setDescripcion(String descripcion) {
+	private final void setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
-		return this;
+		
 	}
 
 	public final GimnasioEntity getGimnasioDTO() {
 		return gimnasioEntity;
 	}
 
-	public final ZonaEntity setGimnasioDTO(GimnasioEntity gimnasioEntity) {
+	private final void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
 		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
-		return this;
+	
 	}
 
 }
