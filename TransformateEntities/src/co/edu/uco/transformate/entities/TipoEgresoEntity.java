@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -23,7 +23,7 @@ public class TipoEgresoEntity {
 		return new TipoEgresoEntity(identificadorUuid,descripcion);
 	}
 
-	private TipoEgresoEntity(UUID identificador, String nombre) {
+	public TipoEgresoEntity(UUID identificador, String nombre) {
 
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -34,9 +34,7 @@ public class TipoEgresoEntity {
 
 	}
 
-	public static TipoEgresoEntity create() {
-		return new TipoEgresoEntity();
-	}
+	
 
 	public final UUID getIdentificador() {
 		return identificador;

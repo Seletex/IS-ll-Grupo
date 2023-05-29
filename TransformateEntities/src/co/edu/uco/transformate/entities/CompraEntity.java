@@ -1,5 +1,6 @@
 package co.edu.uco.transformate.entities;
 
+
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -16,7 +17,7 @@ public class CompraEntity {
 	private LocalDate fechaDate;
 	private EstadoPagoEntity estadoPagoEntity;
 
-	private CompraEntity(UUID identificadorUuid, ProductoEntity productoEntity, LocalDate fechaDate, EstadoPagoEntity estadoPagoEntity,
+	public  CompraEntity(UUID identificadorUuid, ProductoEntity productoEntity, LocalDate fechaDate, EstadoPagoEntity estadoPagoEntity,
 			TipoPagoEntity tipoPagoEntity) {
 		setEstadoPagoDTO(estadoPagoEntity);
 		setFechaDate(fechaDate);
@@ -26,12 +27,17 @@ setTipoPagoDTO(tipoPagoEntity);
 	}
 
 	private CompraEntity() {
-		setEstadoPagoDTO(EstadoPagoEntity.create());
+		setEstadoPagoDTO(EstadoPagoEntity.getDefaultObject());
 		setFechaDate(UtilDate.DEFAULT_DATE);
 		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
 		setProductoDTO(ProductoEntity.create());
-setTipoPagoDTO(TipoPagoEntity.create());
+setTipoPagoDTO(TipoPagoEntity.getDefaultObject());
 	}
+
+	
+
+	
+	
 
 	public static CompraEntity getDefaultObject() {
 		return DEFAULT_OBJECT;
@@ -46,7 +52,7 @@ setTipoPagoDTO(TipoPagoEntity.create());
 	}
 
 	public final void setTipoPagoDTO(TipoPagoEntity tipoPagoEntity) {
-		this.tipoPagoEntity = UtilObject.getDefault(tipoPagoEntity, TipoPagoEntity.create());
+		this.tipoPagoEntity = UtilObject.getDefault(tipoPagoEntity, TipoPagoEntity.getDefaultObject());
 		
 	}
 
@@ -82,7 +88,7 @@ setTipoPagoDTO(TipoPagoEntity.create());
 	}
 
 	public final void setEstadoPagoDTO(EstadoPagoEntity estadoPagoEntity) {
-		this.estadoPagoEntity = UtilObject.getDefault(estadoPagoEntity, EstadoPagoEntity.create());
+		this.estadoPagoEntity = UtilObject.getDefault(estadoPagoEntity, EstadoPagoEntity.getDefaultObject());
 		
 	}
 

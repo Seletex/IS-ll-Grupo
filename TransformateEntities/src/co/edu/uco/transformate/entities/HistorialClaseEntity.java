@@ -15,20 +15,16 @@ public class HistorialClaseEntity {
 	private LocalDateTime horaFin;
 	private String nombreEntrenador;
 
-	private static final HistorialClaseEntity DEFAULT_OBJECT = new HistorialClaseEntity();
-
-	public static HistorialClaseEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
+	
 
 	public static HistorialClaseEntity create(UUID identificador, LocalDate fecha, LocalDateTime horaInicio,
 			LocalDateTime horaFin, String nombreEntrenador) {
 		return new HistorialClaseEntity(identificador,fecha,horaInicio,horaFin,nombreEntrenador);
 	}
 
-private  HistorialClaseEntity(UUID identificador, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin,
+	public   HistorialClaseEntity(UUID identificador, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin,
 			String nombreEntrenador) {
-		super();
+		
 		setFecha(fecha);
 		setHoraFin(horaFin);
 		setHoraInicio(horaInicio);
@@ -37,18 +33,9 @@ private  HistorialClaseEntity(UUID identificador, LocalDate fecha, LocalDateTime
 
 	}
 
-private HistorialClaseEntity() {
-		super();
-		setFecha(UtilDate.DEFAULT_DATE);
-		setHoraFin(UtilDate.DEFAULT_DATE_TIME);
-		setHoraInicio(UtilDate.DEFAULT_DATE_TIME);
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setNombreEntrenador(UtilText.getDefaultValue());
-	}
 
-	public static HistorialClaseEntity create() {
-		return new HistorialClaseEntity();
-	}
+
+
 
 	public UUID getIdentificador() {
 		return identificador;

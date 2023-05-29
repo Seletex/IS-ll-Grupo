@@ -31,8 +31,8 @@ public class ProgresoEntity {
 		return new ProgresoEntity(identificador,nombre,miembroEntity,fecha);
 	}
 	
-	private ProgresoEntity(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha) {
-		super();
+	public ProgresoEntity(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha) {
+	
 		setIdentificador(identificador);
 		setDescripcion(nombre);
 		setMiembroDTO(miembroEntity);
@@ -40,9 +40,9 @@ setFecha(fecha);
 	}
 
 	private ProgresoEntity() {
-		super();
+
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setMiembroDTO(MiembroEntity.create());
+		setMiembroDTO(MiembroEntity.getDefaultObject());
 		setDescripcion(UtilText.getDefaultValue());
 		setFecha(UtilDate.DEFAULT_DATE);
 	}
@@ -74,7 +74,7 @@ setFecha(fecha);
 	}
 
 	private void setMiembroDTO(MiembroEntity miembroEntity) {
-		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.create());
+		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.getDefaultObject());
 	}
 
 	public LocalDate getFecha() {

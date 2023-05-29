@@ -18,20 +18,16 @@ public class InformeFinancieroEntity {
 	private float beneficio;
 	private float perdida;
 
-	private static final InformeFinancieroEntity DEFAULT_OBJECT = new InformeFinancieroEntity();
-
-	public static InformeFinancieroEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
+	
 
 	public static InformeFinancieroEntity create(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate,
 			EgresoEntity egreso, float beneficio, float perdida) {
 		return new InformeFinancieroEntity(identificador, fechaInicioDate, fechaFinDate, egreso, perdida, beneficio);
 	}
 
-	private InformeFinancieroEntity(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate,
+	public  InformeFinancieroEntity(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate,
 			EgresoEntity egreso, float beneficio, float perdida) {
-		super();
+	
 		setBeneficio(beneficio);
 		setEgreso(egreso);
 		setFechaFinDate(fechaFinDate);
@@ -41,19 +37,8 @@ public class InformeFinancieroEntity {
 
 	}
 
-	private InformeFinancieroEntity() {
-		super();
-		setBeneficio(UtilNumber.ZERO);
-		setEgreso(EgresoEntity.create());
-		setFechaFinDate(UtilDate.DEFAULT_DATE);
-		setFechaInicioDate(UtilDate.DEFAULT_DATE);
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setPerdida(UtilNumber.ZERO);
-	}
 
-	public static InformeFinancieroEntity create() {
-		return new InformeFinancieroEntity();
-	}
+
 
 	public UUID getIdentificador() {
 		return identificador;
@@ -88,7 +73,7 @@ public class InformeFinancieroEntity {
 	}
 
 	public InformeFinancieroEntity setEgreso(EgresoEntity egreso) {
-		this.egreso = UtilObject.getDefault(egreso, EgresoEntity.create());
+		this.egreso = UtilObject.getDefault(egreso, EgresoEntity.getDefaultObject());
 		return this;
 	}
 

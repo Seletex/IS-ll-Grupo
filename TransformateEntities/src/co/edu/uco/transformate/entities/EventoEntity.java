@@ -16,18 +16,16 @@ public class EventoEntity {
 	private LocalDate fechaFinDate;
 	private GimnasioEntity gimnasioEntity;
 
-	private static final EventoEntity DEFAULT_OBJECT = new EventoEntity();
+	
 
-	public static EventoEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
+	
 
 	public static EventoEntity create(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString,
 			LocalDate fechaInicioDate, LocalDate fechaFinDate) {
 		return new EventoEntity(gimnasioEntity,identificador,descripcionString,fechaInicioDate,fechaFinDate);
 	}
 
-	private EventoEntity(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString,
+	public  EventoEntity(GimnasioEntity gimnasioEntity, UUID identificador, String descripcionString,
 			LocalDate fechaInicioDate, LocalDate fechaFinDate) {
 
 		setDescripcionString(descripcionString);
@@ -37,18 +35,8 @@ public class EventoEntity {
 		setIdentificador(identificador);
 	}
 
-	private EventoEntity() {
-		super();
-		setDescripcionString(UtilText.getDefaultValue());
-		setFechaFinDate(UtilDate.DEFAULT_DATE);
-		setFechaInicioDate(UtilDate.DEFAULT_DATE);
-		setGimnasioDTO(GimnasioEntity.create());
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-	}
+	
 
-	public static EventoEntity create() {
-		return new EventoEntity();
-	}
 
 	public UUID getIdentificador() {
 		return identificador;
@@ -91,7 +79,7 @@ public class EventoEntity {
 	}
 
 	private void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
-		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
+		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.getDefaultObject());
 	
 	}
 

@@ -3,7 +3,11 @@ package co.edu.uco.transformate.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import co.edu.uco.transformate.crosscutting.utils.UtilDate;
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
+import co.edu.uco.transformate.crosscutting.utils.UtilText;
+import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
+
 
 public class MiembroDTO {
 
@@ -18,10 +22,12 @@ public class MiembroDTO {
 	private PruebaFisicaDTO prueba;
 	private ObjetivoEntrenamientoDTO objetivo;
 	private TipoMiembroDTO tipoMiembroDTO;
+	
+	
 	public MiembroDTO(MembresiaDTO membresiaDTO, UUID identificador, String nombre, TipoDocumentoDTO tipoDocumentoDTO,
 			String identificacion, LocalDate fechaNacimiento, String correo, String telefono, PruebaFisicaDTO prueba,
 			ObjetivoEntrenamientoDTO objetivo, TipoMiembroDTO tipoMiembroDTO) {
-		super();
+		
 		setCorreo(correo);
 		setFechaNacimiento(fechaNacimiento);
 		setIdentificacion(identificacion);
@@ -36,19 +42,20 @@ public class MiembroDTO {
 		
 	}
 	public MiembroDTO() {
-		super();
-		setCorreo(correo);
-		setFechaNacimiento(fechaNacimiento);
-		setIdentificacion(identificacion);
-		setIdentificador(identificador);
-		setMembresiaDTO(membresiaDTO);
-		setNombre(nombre);
-		setObjetivo(objetivo);
-		setPrueba(prueba);
-		setTelefono(telefono);
-		setTipoDocumentoDTO(tipoDocumentoDTO);
-		setTipoMiembroDTO(tipoMiembroDTO);
+		
+		setCorreo(UtilText.EMPTY);
+		setFechaNacimiento(UtilDate.DEFAULT_DATE);
+		setIdentificacion(UtilUUID.DEFAULT_UUID_AS_STRING);
+		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setMembresiaDTO(MembresiaDTO.create());
+		setNombre(UtilText.getDefaultValue());
+		setObjetivo(ObjetivoEntrenamientoDTO.create());
+		setPrueba(PruebaFisicaDTO.create());
+		setTelefono(UtilText.EMPTY);
+		setTipoDocumentoDTO(TipoDocumentoDTO.create());
+		setTipoMiembroDTO(TipoMiembroDTO.create());
 	}
+	
 	
 	public static MiembroDTO create() {
 		return new MiembroDTO();
@@ -57,7 +64,7 @@ public class MiembroDTO {
 		return membresiaDTO;
 	}
 	public MiembroDTO setMembresiaDTO(MembresiaDTO membresiaDTO) {
-		this.membresiaDTO = (MembresiaDTO) UtilObject.getDefault(membresiaDTO, MembresiaDTO.create());return this;
+		this.membresiaDTO =  UtilObject.getDefault(membresiaDTO, MembresiaDTO.create());return this;
 	}
 	public UUID getIdentificador() {
 		return identificador;
@@ -75,7 +82,7 @@ public class MiembroDTO {
 		return tipoDocumentoDTO;
 	}
 	public MiembroDTO setTipoDocumentoDTO(TipoDocumentoDTO tipoDocumentoDTO) {
-		this.tipoDocumentoDTO = UtilObject.getDefault(null, null);return this;
+		this.tipoDocumentoDTO = UtilObject.getDefault(tipoDocumentoDTO, TipoDocumentoDTO.create());return this;
 	}
 	public String getIdentificacion() {
 		return identificacion;
@@ -105,19 +112,19 @@ public class MiembroDTO {
 		return prueba;
 	}
 	public MiembroDTO setPrueba(PruebaFisicaDTO prueba) {
-		this.prueba = UtilObject.getDefault(null, null);return this;
+		this.prueba = UtilObject.getDefault(prueba, PruebaFisicaDTO.create());return this;
 	}
 	public ObjetivoEntrenamientoDTO getObjetivo() {
 		return objetivo;
 	}
 	public MiembroDTO setObjetivo(ObjetivoEntrenamientoDTO objetivo) {
-		this.objetivo = UtilObject.getDefault(null, null);return this;
+		this.objetivo = UtilObject.getDefault(objetivo, ObjetivoEntrenamientoDTO.create());return this;
 	}
 	public TipoMiembroDTO getTipoMiembroDTO() {
 		return tipoMiembroDTO;
 	}
 	public MiembroDTO setTipoMiembroDTO(TipoMiembroDTO tipoMiembroDTO) {
-		this.tipoMiembroDTO = UtilObject.getDefault(null, null);return this;
+		this.tipoMiembroDTO = UtilObject.getDefault(tipoMiembroDTO,TipoMiembroDTO.create());return this;
 	}
 
 }

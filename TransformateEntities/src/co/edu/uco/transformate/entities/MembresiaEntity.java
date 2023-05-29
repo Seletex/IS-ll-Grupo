@@ -37,29 +37,17 @@ public class MembresiaEntity {
 		setTipoMembresiaDTO(tipoMembresiaEntity);
 	}
 
-	public MembresiaEntity(UUID identificadorUuid, short porcentaje, TipoDescuentoEntity tipoDescuentoEntity) {
+	private MembresiaEntity() {
 		setFechaFin(UtilDate.DEFAULT_DATE);
 		setFechaInicio(UtilDate.DEFAULT_DATE);
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoMembresiaDTO(TipoMembresiaEntity.create());
+		setTipoMembresiaDTO(TipoMembresiaEntity.getDefaultObject());
 		
 	
 	}
 
-	public MembresiaEntity() {
-		
-		setFechaFin(fechaFin);
-		setFechaInicio(fechaInicio);
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoMembresiaDTO(TipoMembresiaEntity.create());
-		
-		
-		
-	}
 
-	public static MembresiaEntity create() {
-		return new MembresiaEntity();
-	}
+
 
 	
 	public UUID getIdentificador() {
@@ -67,7 +55,7 @@ public class MembresiaEntity {
 	}
 
 	public void setIdentificador(UUID identificador) {
-		this.identificador = UtilUUID.getDefault(identificador);;
+		this.identificador = UtilUUID.getDefault(identificador);
 	}
 
 	public TipoMembresiaEntity getTipoMembresiaDTO() {
@@ -75,7 +63,7 @@ public class MembresiaEntity {
 	}
 
 	public void setTipoMembresiaDTO(TipoMembresiaEntity tipoMembresiaEntity) {
-		this.tipoMembresiaEntity = UtilObject.getDefault(tipoMembresiaEntity, TipoMembresiaEntity.create());
+		this.tipoMembresiaEntity = UtilObject.getDefault(tipoMembresiaEntity, TipoMembresiaEntity.getDefaultObject());
 	}
 
 	public LocalDate getFechaInicio() {

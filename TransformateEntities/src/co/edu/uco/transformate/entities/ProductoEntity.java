@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilNumber;
@@ -27,7 +27,7 @@ public class ProductoEntity {
 		return new ProductoEntity(identificador,nombre,descripcion,cantidad);
 	}
 
-	private ProductoEntity(UUID identificador, String nombre, String descripcion, int cantidad) {
+	public ProductoEntity(UUID identificador, String nombre, String descripcion, int cantidad) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);

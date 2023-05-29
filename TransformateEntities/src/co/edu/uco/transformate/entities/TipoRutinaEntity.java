@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -26,8 +26,8 @@ public class TipoRutinaEntity {
 	
 	
 
-	private TipoRutinaEntity(UUID identificador, String nombre, String descripcion) {
-		super();
+	public TipoRutinaEntity(UUID identificador, String nombre, String descripcion) {
+		
 		setIdentificador(identificador);
 		setNombre(nombre);
 		setDescripcion(descripcion);
@@ -36,7 +36,7 @@ public class TipoRutinaEntity {
 	}
 
 	private TipoRutinaEntity() {
-		super();
+	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setDescripcion(UtilText.EMPTY);
 		setNombre(UtilText.getDefaultValue());
@@ -53,9 +53,7 @@ public class TipoRutinaEntity {
 	}
 
 	
-	public static TipoRutinaEntity create() {
-		return new TipoRutinaEntity();
-	}
+
 
 	public final UUID getIdentificador() {
 		return identificador;

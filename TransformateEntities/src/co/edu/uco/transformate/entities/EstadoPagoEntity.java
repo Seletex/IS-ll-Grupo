@@ -20,7 +20,7 @@ public final class EstadoPagoEntity {
 		return new EstadoPagoEntity(identificador,nombre);
 	}
 
-	private EstadoPagoEntity(UUID identificador, String nombre) {
+	public  EstadoPagoEntity(UUID identificador, String nombre) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -36,9 +36,6 @@ public final class EstadoPagoEntity {
 		
 	}
 
-	public static EstadoPagoEntity create() {
-		return new EstadoPagoEntity();
-	}
 
 	public final UUID getIdentificador() {
 		return identificador;

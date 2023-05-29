@@ -3,7 +3,7 @@ package co.edu.uco.transformate.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
+
 
 import co.edu.uco.transformate.crosscutting.utils.UtilDate;
 import co.edu.uco.transformate.crosscutting.utils.UtilNumber;
@@ -19,7 +19,7 @@ public class InformeFinancieroDTO {
 	private float perdida;
 	public InformeFinancieroDTO(UUID identificador, LocalDate fechaInicioDate, LocalDate fechaFinDate, EgresoDTO egreso,
 			float beneficio, float perdida) {
-		super();
+		
 		setBeneficio(beneficio);
 		setEgreso(egreso);
 		setFechaFinDate(fechaFinDate);
@@ -29,7 +29,7 @@ public class InformeFinancieroDTO {
 		
 	}
 	public InformeFinancieroDTO() {
-		super();
+	
 		setBeneficio(UtilNumber.ZERO);
 		setEgreso(EgresoDTO.create());
 		setFechaFinDate(UtilDate.DEFAULT_DATE);
@@ -51,7 +51,7 @@ public class InformeFinancieroDTO {
 		return fechaInicioDate;
 	}
 	public InformeFinancieroDTO setFechaInicioDate(LocalDate fechaInicioDate) {
-		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);;return this;
+		this.fechaInicioDate = UtilDate.getDefault(fechaInicioDate);return this;
 	}
 	public LocalDate getFechaFinDate() {
 		return fechaFinDate;

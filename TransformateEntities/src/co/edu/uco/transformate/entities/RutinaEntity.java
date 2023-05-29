@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -28,7 +28,7 @@ public class RutinaEntity {
 		return new RutinaEntity(identificador,nombre,descripcion,planEntrenamientoEntity,ejercicioEntity,tipoRutinaEntity);
 	}
 
-	private RutinaEntity(UUID identificador, String nombre, String descripcion,
+	public RutinaEntity(UUID identificador, String nombre, String descripcion,
 			PlanEntrenamientoEntity planEntrenamientoEntity, EjercicioEntity ejercicioEntity,
 			TipoRutinaEntity tipoRutinaEntity) {
 
@@ -40,20 +40,18 @@ public class RutinaEntity {
 		setTipoRutinaDTO(tipoRutinaEntity);
 	}
 
-	public static RutinaEntity create() {
-		return new RutinaEntity();
-	}
+	
 
 	private RutinaEntity() {
-		super();
+		
 
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
 		setPlanEntrenamientoDTO(PlanEntrenamientoEntity.create());
-		setEjercicioDTO(EjercicioEntity.create());
-		setTipoRutinaDTO(TipoRutinaEntity.create());
+		setEjercicioDTO(EjercicioEntity.getDefaultObject());
+		setTipoRutinaDTO(TipoRutinaEntity.getDefaultObject());
 
 	}
 
@@ -89,7 +87,7 @@ public class RutinaEntity {
 	}
 
 	private void setPlanEntrenamientoDTO(PlanEntrenamientoEntity planEntrenamientoEntity) {
-		this.planEntrenamientoEntity = UtilObject.getDefault(planEntrenamientoEntity, PlanEntrenamientoEntity.create());
+		this.planEntrenamientoEntity = UtilObject.getDefault(planEntrenamientoEntity, PlanEntrenamientoEntity.getDefaultObject());
 	
 	}
 
@@ -98,7 +96,7 @@ public class RutinaEntity {
 	}
 
 	private void setEjercicioDTO(EjercicioEntity ejercicioEntity) {
-		this.ejercicioEntity = UtilObject.getDefault(ejercicioEntity, EjercicioEntity.create());
+		this.ejercicioEntity = UtilObject.getDefault(ejercicioEntity, EjercicioEntity.getDefaultObject());
 	
 	}
 
@@ -107,7 +105,7 @@ public class RutinaEntity {
 	}
 
 	private void setTipoRutinaDTO(TipoRutinaEntity tipoRutinaEntity) {
-		this.tipoRutinaEntity = UtilObject.getDefault(tipoRutinaEntity, TipoRutinaEntity.create());
+		this.tipoRutinaEntity = UtilObject.getDefault(tipoRutinaEntity, TipoRutinaEntity.getDefaultObject());
 	
 	}
 

@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -35,7 +35,7 @@ public class TipoMiembroEntity {
 	private TipoMiembroEntity() {
 		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDescuentoDTO(TipoDescuentoEntity.create());
+		setTipoDescuentoDTO(TipoDescuentoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		
 	}
@@ -45,7 +45,7 @@ public class TipoMiembroEntity {
 	}
 
 	private final void setTipoDescuentoDTO(TipoDescuentoEntity tipoDescuentoEntity) {
-		this.tipoDescuentoEntity = UtilObject.getDefault(tipoDescuentoEntity, TipoDescuentoEntity.create());;
+		this.tipoDescuentoEntity = UtilObject.getDefault(tipoDescuentoEntity, TipoDescuentoEntity.getDefaultObject());
 	
 	}
 

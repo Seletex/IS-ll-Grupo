@@ -28,7 +28,7 @@ public class FacturaEntity {
 	}
 
 
-	private FacturaEntity(UUID identificador, LocalDate fecha, int total, MiembroEntity miembroDTO,
+	public  FacturaEntity(UUID identificador, LocalDate fecha, int total, MiembroEntity miembroDTO,
 			ProductoEntity productoDTO) {
 		setFecha(fecha);
 		setIdentificador(identificador);
@@ -40,14 +40,12 @@ public class FacturaEntity {
 	private FacturaEntity() {
 		setFecha(UtilDate.DEFAULT_DATE);
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setMiembroDTO(MiembroEntity.create());
-		setProductoDTO(ProductoEntity.create());
+		setMiembroDTO(MiembroEntity.getDefaultObject());
+		setProductoDTO(ProductoEntity.getDefaultObject());
 		setTotal(UtilNumber.getDefaultNumber());
 	}
 
-	public static FacturaEntity create() {
-		return new FacturaEntity();
-	}
+	
 
 	public UUID getIdentificador() {
 		return identificador;
@@ -78,7 +76,7 @@ public class FacturaEntity {
 	}
 
 	private void setMiembroDTO(MiembroEntity miembroDTO) {
-		this.miembroDTO = UtilObject.getDefault(miembroDTO, MiembroEntity.create());
+		this.miembroDTO = UtilObject.getDefault(miembroDTO, MiembroEntity.getDefaultObject());
 	}
 
 	public ProductoEntity getProductoDTO() {
@@ -86,7 +84,7 @@ public class FacturaEntity {
 	}
 
 	private void setProductoDTO(ProductoEntity productoDTO) {
-		this.productoDTO = UtilObject.getDefault(productoDTO, ProductoEntity.create());
+		this.productoDTO = UtilObject.getDefault(productoDTO, ProductoEntity.getDefaultObject());
 	}
 
 }

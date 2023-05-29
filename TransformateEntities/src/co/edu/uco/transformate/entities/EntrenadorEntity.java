@@ -32,10 +32,10 @@ public class EntrenadorEntity {
 		return new EntrenadorEntity(identificador,tipoDocumentoEntity,identificacion,nombre,usuario,constraseña,telefono,salario,gimnasioEntity);
 	}
 
-	private EntrenadorEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity,
+	public  EntrenadorEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity,
 			final String identificacion, final String nombre, final String usuario, final String constraseña,
 			final String telefono, final int salario, final GimnasioEntity gimnasioEntity) {
-		super();
+	
 		setIdentificador(identificador);
 		setTipoDocumentoDTO(tipoDocumentoEntity);
 		setIdentificacion(identificacion);
@@ -49,15 +49,15 @@ public class EntrenadorEntity {
 	}
 
 	private EntrenadorEntity() {
-		super();
+		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDocumentoDTO(TipoDocumentoEntity.create());
+		setTipoDocumentoDTO(TipoDocumentoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setIdentificacion(UtilText.EMPTY);
 		setUsuario(UtilText.EMPTY);
 		setConstraseña(UtilText.EMPTY);
 		setTelefono(UtilText.EMPTY);
-		setGimnasioDTO(GimnasioEntity.create());
+		setGimnasioDTO(GimnasioEntity.getDefaultObject());
 
 	}
 
@@ -80,7 +80,7 @@ public class EntrenadorEntity {
 	}
 
 	private final void setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
-		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.create());
+		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.getDefaultObject());
 
 	}
 
@@ -134,7 +134,7 @@ public class EntrenadorEntity {
 	}
 
 	private final void setSalario(int salario) {
-		this.salario = UtilNumber.getDefaultNumber();
+		this.salario = UtilNumber.getDefaultNumber(salario);
 	
 	}
 
@@ -143,7 +143,7 @@ public class EntrenadorEntity {
 	}
 
 	private final void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
-		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
+		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.getDefaultObject());
 
 	}
 

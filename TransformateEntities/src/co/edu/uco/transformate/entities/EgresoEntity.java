@@ -32,7 +32,7 @@ public class EgresoEntity {
 	}
 
 	
-	private EgresoEntity(UUID identiUuid, String nombre, String descripcion, int total, LocalDateTime fecha,
+	public  EgresoEntity(UUID identiUuid, String nombre, String descripcion, int total, LocalDateTime fecha,
 			GerenteEntity responsable, TipoEgresoEntity tipoEgreso) {
 		setIdentiUuid(identiUuid);
 		setDescripcion(descripcion);
@@ -47,16 +47,14 @@ public class EgresoEntity {
 	private EgresoEntity() {
 		setIdentiUuid(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
-		setTipoEgreso(TipoEgresoEntity.create());
+		setTipoEgreso(TipoEgresoEntity.getDefaultObject());
 		setDescripcion(UtilText.EMPTY);
 		setTotal(UtilNumber.ZERO);
 		setFecha(UtilDate.DEFAULT_DATE_TIME);
-		setResponsable(GerenteEntity.create());
+		setResponsable(GerenteEntity.getDefaultObject());
 	}
 	
-	public static EgresoEntity create() {
-		return new EgresoEntity();
-	}
+
 
 	public UUID getIdentiUuid() {
 		return identiUuid;
@@ -103,7 +101,7 @@ public class EgresoEntity {
 	}
 
 	private void setResponsable(GerenteEntity responsable) {
-		this.responsable = UtilObject.getDefault(responsable, GerenteEntity.create());
+		this.responsable = UtilObject.getDefault(responsable, GerenteEntity.getDefaultObject());
 	}
 
 	public TipoEgresoEntity getTipoEgreso() {
@@ -111,7 +109,7 @@ public class EgresoEntity {
 	}
 
 	private void setTipoEgreso(TipoEgresoEntity tipoEgreso) {
-		this.tipoEgreso = UtilObject.getDefault(tipoEgreso, TipoEgresoEntity.create());
+		this.tipoEgreso = UtilObject.getDefault(tipoEgreso, TipoEgresoEntity.getDefaultObject());
 		
 	}
 	

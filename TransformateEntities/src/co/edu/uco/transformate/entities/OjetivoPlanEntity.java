@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -27,7 +27,7 @@ public class OjetivoPlanEntity {
 		return new OjetivoPlanEntity(identificador, nombre, objetivoEntrenamientoEntity,descripcion,planEntrenamientoEntity);
 	}
 
-	private OjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
+	public OjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
 			String descripcion, PlanEntrenamientoEntity planEntrenamientoEntity) {
 		setDescripcion(descripcion);
 		setObjetivoEntrenamientoDTO(objetivoEntrenamientoEntity);
@@ -40,14 +40,12 @@ public class OjetivoPlanEntity {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
-		setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoEntity.create());
-		setPlanEntrenamientoDTO(PlanEntrenamientoEntity.create());
+		setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoEntity.getDefaultObject());
+		setPlanEntrenamientoDTO(PlanEntrenamientoEntity.getDefaultObject());
 
 	}
 
-	public static OjetivoPlanEntity create() {
-		return new OjetivoPlanEntity();
-	}
+
 
 	public String getDescripcion() {
 		return descripcion;
@@ -63,7 +61,7 @@ public class OjetivoPlanEntity {
 	}
 
 	private void setPlanEntrenamientoDTO(PlanEntrenamientoEntity planEntrenamientoEntity) {
-		this.planEntrenamientoEntity = UtilObject.getDefault(planEntrenamientoEntity, PlanEntrenamientoEntity.create());
+		this.planEntrenamientoEntity = UtilObject.getDefault(planEntrenamientoEntity, PlanEntrenamientoEntity.getDefaultObject());
 	
 	}
 
@@ -73,7 +71,7 @@ public class OjetivoPlanEntity {
 
 	private void setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity) {
 		this.objetivoEntrenamientoEntity = UtilObject.getDefault(objetivoEntrenamientoEntity,
-				ObjetivoEntrenamientoEntity.create());
+				ObjetivoEntrenamientoEntity.getDefaultObject());
 	
 	}
 

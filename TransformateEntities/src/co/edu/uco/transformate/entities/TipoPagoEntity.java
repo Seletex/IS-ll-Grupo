@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -40,9 +40,7 @@ public class TipoPagoEntity {
 		
 	}
 
-	public static TipoPagoEntity create() {
-		return new TipoPagoEntity();
-	}
+
 
 	public final UUID getIdentificador() {
 		return identificador;

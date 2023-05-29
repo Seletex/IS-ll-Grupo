@@ -15,4 +15,7 @@ public interface UtilObject {
 		}
 
 
+	 static <O> boolean isEmpty(final Object object) {
+		 return object==null;
+	 }
 }

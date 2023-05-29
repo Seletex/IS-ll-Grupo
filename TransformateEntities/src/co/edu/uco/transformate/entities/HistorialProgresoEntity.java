@@ -16,19 +16,15 @@ public class HistorialProgresoEntity {
 
 	private String nombreMiembro;
 	
-	private static final HistorialProgresoEntity DEFAULT_OBJECT = new HistorialProgresoEntity();
-
-	public static HistorialProgresoEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
+	
 
 	public static HistorialProgresoEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
 			String nombreMiembroString) {
 		return new HistorialProgresoEntity(identificadorUuid,fechaDate,descripcion,nombreMiembroString);
 	}
 
-	private HistorialProgresoEntity(UUID identificador, LocalDate fecha, String descripcion, String nombreMiembro) {
-		super();
+	public  HistorialProgresoEntity(UUID identificador, LocalDate fecha, String descripcion, String nombreMiembro) {
+		
 		setFecha(fecha);
 		setDescripcion(descripcion);
 		setIdentificador(identificador);
@@ -36,17 +32,8 @@ public class HistorialProgresoEntity {
 
 	}
 
-	private HistorialProgresoEntity() {
-		super();
-		setFecha(UtilDate.DEFAULT_DATE);
-		setDescripcion(UtilText.EMPTY);
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setNombreMiembro(UtilText.getDefaultValue());
-	}
 
-	public static HistorialProgresoEntity create() {
-		return new HistorialProgresoEntity();
-	}
+
 
 	public UUID getIdentificador() {
 		return identificador;

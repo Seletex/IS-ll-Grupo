@@ -34,7 +34,7 @@ public class RecepcionistaEntity {
 	public RecepcionistaEntity(final UUID identificador, final TipoDocumentoEntity tipoDocumentoEntity, final String identificacion,
 			final String nombre, final String usuario, final String constraseña, final String telefono,
 			final int salario, final GimnasioEntity gimnasioEntity) {
-		super();
+		
 		setIdentificador(identificador);
 		setTipoDocumentoDTO(tipoDocumentoEntity);
 		setIdentificacion(identificacion);
@@ -48,15 +48,15 @@ public class RecepcionistaEntity {
 	}
 
 	public RecepcionistaEntity() {
-		super();
+		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDocumentoDTO(TipoDocumentoEntity.create());
+		setTipoDocumentoDTO(TipoDocumentoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setIdentificacion(UtilText.EMPTY);
 		setUsuario(UtilText.EMPTY);
 		setConstraseña(UtilText.EMPTY);
 		setTelefono(UtilText.EMPTY);
-		setGimnasioDTO(GimnasioEntity.create());
+		setGimnasioDTO(GimnasioEntity.getDefaultObject());
 
 	}
 
@@ -70,7 +70,7 @@ public class RecepcionistaEntity {
 
 	public final RecepcionistaEntity setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
-		;
+		
 		return this;
 	}
 
@@ -79,7 +79,7 @@ public class RecepcionistaEntity {
 	}
 
 	public final RecepcionistaEntity setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
-		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.create());
+		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.getDefaultObject());
 		return this;
 	}
 
@@ -142,7 +142,7 @@ public class RecepcionistaEntity {
 	}
 
 	public final RecepcionistaEntity setGimnasioDTO(GimnasioEntity gimnasioEntity) {
-		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
+		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.getDefaultObject());
 		return this;
 	}
 

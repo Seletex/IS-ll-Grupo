@@ -1,6 +1,7 @@
 package co.edu.uco.transformate.entities;
 
 
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -29,9 +30,9 @@ public final class ClaseEntity {
 		return new ClaseEntity(identificadorUuid,fechaDate,horaInicioDate,horaFinDate,entrenadorEntity);
 	}
 	
-	private ClaseEntity(UUID identificadorUuid, LocalDate fechaDate, LocalDateTime horaInicioDate, LocalDateTime horaFinDate,
+	public  ClaseEntity(UUID identificadorUuid, LocalDate fechaDate, LocalDateTime horaInicioDate, LocalDateTime horaFinDate,
 			EntrenadorEntity entrenadorEntity) {
-		super();
+	
 		setIdentificadorUuid(identificadorUuid);
 		setFechaDate(fechaDate);
 		setHoraInicioDate(horaInicioDate);
@@ -46,6 +47,8 @@ public final class ClaseEntity {
 		setHoraFinDate(UtilDate.DEFAULT_DATE_TIME);
 		setEntrenadorDTO(EntrenadorEntity.create());
 	}
+
+	
 
 	
 

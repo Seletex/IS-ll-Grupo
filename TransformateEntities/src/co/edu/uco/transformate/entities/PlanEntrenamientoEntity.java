@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
@@ -25,8 +25,8 @@ public class PlanEntrenamientoEntity {
 		return new PlanEntrenamientoEntity(identificador, nombre, descripcion, nivel);
 	}
 
-	private PlanEntrenamientoEntity(UUID identificador, String nombre, String descripcion, NivelDificultadEntity nivel) {
-		super();
+	public PlanEntrenamientoEntity(UUID identificador, String nombre, String descripcion, NivelDificultadEntity nivel) {
+	
 		setIdentificador(identificador);
 		setNombre(nombre);
 		setDescripcion(descripcion);
@@ -35,11 +35,11 @@ public class PlanEntrenamientoEntity {
 	}
 
 	private PlanEntrenamientoEntity() {
-		super();
+		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setDescripcion(UtilText.EMPTY);
 		setNombre(UtilText.getDefaultValue());
-		setNivel(NivelDificultadEntity.create());
+		setNivel(NivelDificultadEntity.getDefaultObject());
 	}
 
 	public final String getDescripcion() {
@@ -56,7 +56,7 @@ public class PlanEntrenamientoEntity {
 	}
 
 	private final void setNivel(NivelDificultadEntity nivel) {
-		this.nivel = UtilObject.getDefault(nivel, NivelDificultadEntity.create());
+		this.nivel = UtilObject.getDefault(nivel, NivelDificultadEntity.getDefaultObject());
 	
 	}
 

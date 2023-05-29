@@ -13,36 +13,23 @@ public class HistorialPruebaFisicaEntity {
 	private LocalDate fecha;
 	private String descripcion;
 	
-	private static final HistorialPruebaFisicaEntity DEFAULT_OBJECT = new HistorialPruebaFisicaEntity();
-
-	public static HistorialPruebaFisicaEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
 
 	public static HistorialPruebaFisicaEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion
 			) {
 		return new HistorialPruebaFisicaEntity(identificadorUuid,fechaDate,descripcion);
 	}
 
-	private HistorialPruebaFisicaEntity(UUID identificador, LocalDate fecha, String descripcion) {
-		super();
+	public  HistorialPruebaFisicaEntity(UUID identificador, LocalDate fecha, String descripcion) {
+		
 		setFecha(fecha);
 		setDescripcion(descripcion);
 		setIdentificador(identificador);
 
 	}
 
-	private HistorialPruebaFisicaEntity() {
-		super();
-		setFecha(UtilDate.DEFAULT_DATE);
-		setDescripcion(UtilText.getDefaultValue());
-		setIdentificador(UtilUUID.DEFAULT_UUID);
 
-	}
 
-	public static HistorialPruebaFisicaEntity create() {
-		return new HistorialPruebaFisicaEntity();
-	}
+
 
 	public UUID getIdentificador() {
 		return identificador;

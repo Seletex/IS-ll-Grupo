@@ -3,7 +3,10 @@ package co.edu.uco.transformate.entities;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import co.edu.uco.transformate.crosscutting.utils.UtilDate;
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
+import co.edu.uco.transformate.crosscutting.utils.UtilText;
+import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
 public class MiembroEntity {
 
@@ -33,11 +36,11 @@ public class MiembroEntity {
 				fechaNacimiento, correo, telefono, prueba, objetivo, tipoMiembroEntity);
 	}
 
-	private MiembroEntity(MembresiaEntity membresiaEntity, UUID identificador, String nombre,
+	public MiembroEntity(MembresiaEntity membresiaEntity, UUID identificador, String nombre,
 			TipoDocumentoEntity tipoDocumentoEntity, String identificacion, LocalDate fechaNacimiento, String correo,
 			String telefono, PruebaFisicaEntity prueba, ObjetivoEntrenamientoEntity objetivo,
 			TipoMiembroEntity tipoMiembroEntity) {
-		super();
+	
 		setCorreo(correo);
 		setFechaNacimiento(fechaNacimiento);
 		setIdentificacion(identificacion);
@@ -53,30 +56,28 @@ public class MiembroEntity {
 	}
 
 	private MiembroEntity() {
-		super();
-		setCorreo(correo);
-		setFechaNacimiento(fechaNacimiento);
-		setIdentificacion(identificacion);
-		setIdentificador(identificador);
-		setMembresiaDTO(membresiaEntity);
-		setNombre(nombre);
-		setObjetivo(objetivo);
-		setPrueba(prueba);
-		setTelefono(telefono);
-		setTipoDocumentoDTO(tipoDocumentoEntity);
-		setTipoMiembroDTO(tipoMiembroEntity);
+	
+		setCorreo(UtilText.EMPTY);
+		setFechaNacimiento(UtilDate.DEFAULT_DATE);
+		setIdentificacion(UtilUUID.DEFAULT_UUID_AS_STRING);
+		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setMembresiaDTO(MembresiaEntity.getDefaultObject());
+		setNombre(UtilText.getDefaultValue());
+		setObjetivo(ObjetivoEntrenamientoEntity.getDefaultObject());
+		setPrueba(PruebaFisicaEntity.getDefaultObject());
+		setTelefono(UtilText.EMPTY);
+		setTipoDocumentoDTO(TipoDocumentoEntity.getDefaultObject());
+		setTipoMiembroDTO(TipoMiembroEntity.getDefaultObject());
 	}
 
-	public static MiembroEntity create() {
-		return new MiembroEntity();
-	}
+
 
 	public MembresiaEntity getMembresiaDTO() {
 		return membresiaEntity;
 	}
 
 	private void setMembresiaDTO(MembresiaEntity membresiaEntity) {
-		this.membresiaEntity = (MembresiaEntity) UtilObject.getDefault(membresiaEntity, MembresiaEntity.create());
+		this.membresiaEntity =  UtilObject.getDefault(membresiaEntity, MembresiaEntity.getDefaultObject());
 	
 	}
 
@@ -103,7 +104,7 @@ public class MiembroEntity {
 	}
 
 	private void setTipoDocumentoDTO(TipoDocumentoEntity tipoDocumentoEntity) {
-		this.tipoDocumentoEntity = UtilObject.getDefault(null, null);
+		this.tipoDocumentoEntity = UtilObject.getDefault(tipoDocumentoEntity, TipoDocumentoEntity.getDefaultObject());
 		
 	}
 
@@ -148,7 +149,7 @@ public class MiembroEntity {
 	}
 
 	private void setPrueba(PruebaFisicaEntity prueba) {
-		this.prueba = UtilObject.getDefault(null, null);
+		this.prueba = UtilObject.getDefault(prueba, PruebaFisicaEntity.getDefaultObject());
 	
 	}
 
@@ -157,7 +158,7 @@ public class MiembroEntity {
 	}
 
 	private void setObjetivo(ObjetivoEntrenamientoEntity objetivo) {
-		this.objetivo = UtilObject.getDefault(null, null);
+		this.objetivo = UtilObject.getDefault(objetivo, ObjetivoEntrenamientoEntity.getDefaultObject());
 		
 	}
 
@@ -166,7 +167,7 @@ public class MiembroEntity {
 	}
 
 	private void setTipoMiembroDTO(TipoMiembroEntity tipoMiembroEntity) {
-		this.tipoMiembroEntity = UtilObject.getDefault(null, null);
+		this.tipoMiembroEntity = (TipoMiembroEntity) UtilObject.getDefault(tipoMiembroEntity,TipoDocumentoEntity.getDefaultObject());
 		
 	}
 

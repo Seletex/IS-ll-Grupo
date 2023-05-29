@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -25,7 +25,7 @@ public class TipoDocumentoEntity {
 		return new TipoDocumentoEntity(identificadorUuid,descripcion);
 	}
 
-	private TipoDocumentoEntity(UUID identificador, String nombre) {
+	public TipoDocumentoEntity(UUID identificador, String nombre) {
 
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -37,10 +37,7 @@ public class TipoDocumentoEntity {
 
 	}
 
-	public static TipoDocumentoEntity create() {
-		return new TipoDocumentoEntity();
-	}
-
+	
 	public final UUID getIdentificador() {
 		return identificador;
 	}

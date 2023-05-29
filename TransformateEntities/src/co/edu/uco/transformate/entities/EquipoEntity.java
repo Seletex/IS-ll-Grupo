@@ -23,8 +23,8 @@ public class EquipoEntity {
 		return new EquipoEntity(identificador,nombre,descripcion,zonaEntity);
 	}
 	
-	private EquipoEntity(UUID identificador, String nombre, String descripcion, ZonaEntity zonaEntity) {
-		super();
+	public  EquipoEntity(UUID identificador, String nombre, String descripcion, ZonaEntity zonaEntity) {
+	
 		setIdentificador(identificador);
 		setNombre(nombre);
 		setDescripcion(descripcion);
@@ -32,14 +32,12 @@ public class EquipoEntity {
 
 	}
 
-	public static EquipoEntity create() {
-		return new EquipoEntity();
-	}
+
 
 	private EquipoEntity() {
-		super();
+	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setZonaDTO(ZonaEntity.create());
+		setZonaDTO(ZonaEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
 	}
@@ -76,7 +74,7 @@ public class EquipoEntity {
 	}
 
 	private final void setZonaDTO(ZonaEntity zonaEntity) {
-		this.zonaEntity =  UtilObject.getDefault(zonaEntity, ZonaEntity.create());
+		this.zonaEntity =  UtilObject.getDefault(zonaEntity, ZonaEntity.getDefaultObject());
 		
 	}
 

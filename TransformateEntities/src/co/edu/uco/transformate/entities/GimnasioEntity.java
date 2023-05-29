@@ -29,9 +29,9 @@ public class GimnasioEntity {
 		return new GimnasioEntity(identificador,nombre,descripcionString,telefonoString,correoString,horaAperturaDate,horaCierreDate);
 	}
 
-	private GimnasioEntity(UUID identificador, String nombre, String descripcionString, String telefonoString,
+	public  GimnasioEntity(UUID identificador, String nombre, String descripcionString, String telefonoString,
 			String correoString, LocalDateTime horaAperturaDate, LocalDateTime horaCierreDate) {
-		super();
+		
 		setIdentificador(identificador);
 		setNombre(nombre);
 		setDescripcionString(descripcionString);
@@ -52,9 +52,7 @@ public class GimnasioEntity {
 
 	}
 
-	public static GimnasioEntity create() {
-		return new GimnasioEntity();
-	}
+
 
 	public final UUID getIdentificador() {
 		return identificador;

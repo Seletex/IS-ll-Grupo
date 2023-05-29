@@ -15,20 +15,16 @@ public class HistorialNotaMedicaEntity {
 	private String descripcion;
 	private String nombreMiembroString;
 	
-	private static final HistorialNotaMedicaEntity DEFAULT_OBJECT = new HistorialNotaMedicaEntity();
 
-	public static HistorialNotaMedicaEntity getDefaultObject() {
-		return DEFAULT_OBJECT;
-	}
 
 	public static HistorialNotaMedicaEntity create(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
 			String nombreMiembroString) {
 		return new HistorialNotaMedicaEntity(identificadorUuid,fechaDate,descripcion,nombreMiembroString);
 	}
 
-	private HistorialNotaMedicaEntity(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
+	public  HistorialNotaMedicaEntity(UUID identificadorUuid, LocalDate fechaDate, String descripcion,
 			String nombreMiembroString) {
-		super();
+	
 		setDescripcion(descripcion);
 		setFechaDate(fechaDate);
 		setIdentificadorUuid(identificadorUuid);
@@ -36,17 +32,8 @@ public class HistorialNotaMedicaEntity {
 
 	}
 
-	private HistorialNotaMedicaEntity() {
-		super();
-		setDescripcion(UtilText.getDefaultValue());
-		setFechaDate(UtilDate.DEFAULT_DATE);
-		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
-		setNombreMiembroString(UtilText.EMPTY);
-	}
 
-	public static HistorialNotaMedicaEntity create() {
-		return new HistorialNotaMedicaEntity();
-	}
+	
 
 	public UUID getIdentificadorUuid() {
 		return identificadorUuid;

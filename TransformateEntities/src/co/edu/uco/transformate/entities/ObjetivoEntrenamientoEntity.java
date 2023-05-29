@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
+
 import java.util.UUID;
 
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
@@ -23,7 +23,7 @@ public class ObjetivoEntrenamientoEntity {
 		return new ObjetivoEntrenamientoEntity(identificadorUuid,descripcion);
 	}
 
-	private ObjetivoEntrenamientoEntity(UUID identificador, String nombre) {
+	public ObjetivoEntrenamientoEntity(UUID identificador, String nombre) {
 
 		setIdentificador(identificador);
 		setDescripcion(nombre);
@@ -35,9 +35,7 @@ public class ObjetivoEntrenamientoEntity {
 
 	}
 
-	public static ObjetivoEntrenamientoEntity create() {
-		return new ObjetivoEntrenamientoEntity();
-	}
+
 
 	public final UUID getIdentificador() {
 		return identificador;

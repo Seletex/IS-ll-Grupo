@@ -26,24 +26,23 @@ public class NotaMedicaEntity {
 	}
 	
 	public NotaMedicaEntity(UUID identificador, String nombre,MiembroEntity miembroEntity) {
-		super();
+
+
 		setIdentificador(identificador);
 		setDescripcion(nombre);
 		setMiembroDTO(miembroEntity);
 
 	}
 
-	public NotaMedicaEntity() {
-		super();
+	private NotaMedicaEntity() {
+		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setMiembroDTO(MiembroEntity.create());
+		setMiembroDTO(MiembroEntity.getDefaultObject());
 		setDescripcion(UtilText.getDefaultValue());
 		
 	}
 
-	public static NotaMedicaEntity create() {
-		return new NotaMedicaEntity();
-	}
+
 
 	public final UUID getIdentificador() {
 		return identificador;
@@ -68,7 +67,7 @@ public class NotaMedicaEntity {
 	}
 
 	public NotaMedicaEntity setMiembroDTO(MiembroEntity miembroEntity) {
-		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.create());return this;
+		this.miembroEntity = UtilObject.getDefault(miembroEntity,MiembroEntity.getDefaultObject());return this;
 	}
 
 }

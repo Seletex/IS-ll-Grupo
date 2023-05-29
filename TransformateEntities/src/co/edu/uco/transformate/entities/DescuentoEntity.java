@@ -24,7 +24,7 @@ public class DescuentoEntity {
 		return new DescuentoEntity(identificadorUuid,porcentaje,tipoDescuentoEntity);
 	}
 
-	private DescuentoEntity(UUID identificadorUuid, short porcentaje, TipoDescuentoEntity tipoDescuentoEntity) {
+	public  DescuentoEntity(UUID identificadorUuid, short porcentaje, TipoDescuentoEntity tipoDescuentoEntity) {
 	
 		setIdentificadorUuid(identificadorUuid);
 		setPorcentaje(porcentaje);
@@ -32,16 +32,14 @@ public class DescuentoEntity {
 	
 	}
 
-	private DescuentoEntity() {
+	private  DescuentoEntity() {
 		setPorcentaje(UtilNumber.ZERO);
 		setTipoDescuentoDTO(TipoDescuentoEntity.create());
 		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
 		
 	}
 
-	public static DescuentoEntity create() {
-		return new DescuentoEntity();
-	}
+	
 
 	public final short getPorcentaje() {
 		return porcentaje;

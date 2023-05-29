@@ -11,10 +11,18 @@ public final class UtilDate {
 			DateTimeFormatter.ISO_LOCAL_DATE);
 	private static final String DATE_RE_STRING = "\\d{4}-\\d{2}-\\d{2}";
 	public static final LocalDateTime DEFAULT_DATE_TIME= LocalDateTime.now();
-			
+		
+	
+	private static final UtilDate INSTANCE = new UtilDate();
+
+
+
+	public static final UtilDate getUtilDate() {
+		return INSTANCE;
+	}
 
 	private UtilDate() {
-		super();
+	
 	}
 
 	public static final LocalDate generateNewDate() {
@@ -42,4 +50,11 @@ public final class UtilDate {
 	}
 
 
+	public final LocalDateTime isEmptyDateTime(final LocalDateTime dateValue) {
+		return (UtilObject.isNull(dateValue)) ? DEFAULT_DATE_TIME : dateValue;
+	}
+	
+	public  final LocalDate IsEmptyDate(final LocalDate dateValue) {
+		return (UtilObject.isNull(dateValue)) ? DEFAULT_DATE : dateValue;
+	}
 }

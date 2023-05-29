@@ -1,6 +1,5 @@
 package co.edu.uco.transformate.entities;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -26,8 +25,8 @@ public class PruebaFisicaEntity {
 		return new PruebaFisicaEntity(identificadorUuid,descripcionString,tiempoDateTime);
 	}
 	
-	private PruebaFisicaEntity(UUID identificadorUuid, String descripcionString, LocalDateTime tiempoDateTime) {
-		super();
+	public PruebaFisicaEntity(UUID identificadorUuid, String descripcionString, LocalDateTime tiempoDateTime) {
+	
 		setIdentificadorUuid(identificadorUuid);
 		setDescripcionString(descripcionString);
 		setTiempoDateTime(tiempoDateTime);
@@ -35,14 +34,12 @@ public class PruebaFisicaEntity {
 	}
 
 	private PruebaFisicaEntity() {
-		super();
+	
 		setIdentificadorUuid(UtilUUID.DEFAULT_UUID);
 		setDescripcionString(UtilText.getDefaultValue());
 	}
 
-	public static PruebaFisicaEntity create() {
-		return new PruebaFisicaEntity();
-	}
+
 
 	public UUID getIdentificadorUuid() {
 		return identificadorUuid;

@@ -23,7 +23,7 @@ public class NivelDificultadEntity {
 	}
 	
 
-	private NivelDificultadEntity(UUID identificador, String nombre) {
+	public NivelDificultadEntity(UUID identificador, String nombre) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -32,16 +32,13 @@ public class NivelDificultadEntity {
 	}
 
 	private NivelDificultadEntity() {
-		super();
+	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		
 		setNombre(UtilText.getDefaultValue());
 		
 	}
 
-	public static NivelDificultadEntity create() {
-		return new NivelDificultadEntity();
-	}
 
 	public final UUID getIdentificador() {
 		return identificador;

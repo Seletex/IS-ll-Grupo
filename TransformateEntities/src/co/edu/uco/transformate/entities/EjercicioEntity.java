@@ -27,9 +27,9 @@ public class EjercicioEntity {
 		return new EjercicioEntity(identicador, nombre, descripcion, equipoEntity, repeticiones,series);
 	}
 
-	private EjercicioEntity(UUID identicador, String nombre, String descripcion, EquipoEntity equipoEntity,
+	public  EjercicioEntity(UUID identicador, String nombre, String descripcion, EquipoEntity equipoEntity,
 			int repeticiones, int series) {
-		super();
+		
 		setIdenti(identicador);
 		setNombre(nombre);
 		setDescripcion(descripcion);
@@ -40,18 +40,15 @@ public class EjercicioEntity {
 	}
 
 	private EjercicioEntity() {
-		super();
+		
 		setIdenti(UtilUUID.DEFAULT_UUID);
 
-		setEquipoDTO(EquipoEntity.create());
+		setEquipoDTO(EquipoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
 
 	}
 
-	public static EjercicioEntity create() {
-		return new EjercicioEntity();
-	}
 
 	public final UUID getIdenti() {
 		return identi;
@@ -85,7 +82,7 @@ public class EjercicioEntity {
 	}
 
 	private final void setEquipoDTO(EquipoEntity equipoEntity) {
-		this.equipoEntity = UtilObject.getDefault(equipoEntity, EquipoEntity.create());
+		this.equipoEntity = UtilObject.getDefault(equipoEntity, EquipoEntity.getDefaultObject());
 	
 	}
 

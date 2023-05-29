@@ -27,7 +27,7 @@ public class ZonaEntity {
 	}
 
 	private ZonaEntity(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity) {
-		super();
+	
 		setIdentificador(identificador);
 		setNombre(nombre);
 		setDescripcion(descripcion);
@@ -36,16 +36,14 @@ public class ZonaEntity {
 	}
 
 	private ZonaEntity() {
-		super();
+	
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setGimnasioDTO(GimnasioEntity.create());
+		setGimnasioDTO(GimnasioEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
 	}
 
-	public static ZonaEntity create() {
-		return new ZonaEntity();
-	}
+	
 
 	public final UUID getIdentificador() {
 		return identificador;
@@ -79,7 +77,7 @@ public class ZonaEntity {
 	}
 
 	private final void setGimnasioDTO(GimnasioEntity gimnasioEntity) {
-		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.create());
+		this.gimnasioEntity = UtilObject.getDefault(gimnasioEntity, GimnasioEntity.getDefaultObject());
 	
 	}
 
