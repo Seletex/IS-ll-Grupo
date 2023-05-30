@@ -20,16 +20,16 @@ public class NotaMedicaEntity {
 		return DEFAULT_OBJECT;
 	}
 
-	public static NotaMedicaEntity create(UUID identificador, String nombre,MiembroEntity miembroEntity
+	public static NotaMedicaEntity create(UUID identificador, String descripcion,MiembroEntity miembroEntity
 			) {
-		return new NotaMedicaEntity(identificador,nombre,miembroEntity);
+		return new NotaMedicaEntity(identificador,descripcion,miembroEntity);
 	}
 	
-	public NotaMedicaEntity(UUID identificador, String nombre,MiembroEntity miembroEntity) {
+	public NotaMedicaEntity(UUID identificador, String descripcion,MiembroEntity miembroEntity) {
 
 
 		setIdentificador(identificador);
-		setDescripcion(nombre);
+		setDescripcion(descripcion);
 		setMiembroDTO(miembroEntity);
 
 	}
@@ -57,8 +57,8 @@ public class NotaMedicaEntity {
 		return descripcion;
 	}
 
-	public final NotaMedicaEntity setDescripcion(String nombre) {
-		this.descripcion = UtilText.getUtilText().applyTrim(nombre);
+	public final NotaMedicaEntity setDescripcion(String descripcion) {
+		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
 		return this;
 	}
 

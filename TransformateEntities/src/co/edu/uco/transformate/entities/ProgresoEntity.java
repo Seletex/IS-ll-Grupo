@@ -26,15 +26,15 @@ public class ProgresoEntity {
 		return DEFAULT_OBJECT;
 	}
 
-	public static ProgresoEntity create(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha
+	public static ProgresoEntity create(UUID identificador, String descripcion,MiembroEntity miembroEntity,LocalDate fecha
 			) {
-		return new ProgresoEntity(identificador,nombre,miembroEntity,fecha);
+		return new ProgresoEntity(identificador,descripcion,miembroEntity,fecha);
 	}
 	
-	public ProgresoEntity(UUID identificador, String nombre,MiembroEntity miembroEntity,LocalDate fecha) {
+	public ProgresoEntity(UUID identificador, String descripcion,MiembroEntity miembroEntity,LocalDate fecha) {
 	
 		setIdentificador(identificador);
-		setDescripcion(nombre);
+		setDescripcion(descripcion);
 		setMiembroDTO(miembroEntity);
 setFecha(fecha);
 	}

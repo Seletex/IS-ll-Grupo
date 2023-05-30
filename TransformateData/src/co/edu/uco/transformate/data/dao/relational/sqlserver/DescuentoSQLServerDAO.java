@@ -119,14 +119,14 @@ public class DescuentoSQLServerDAO extends SQLDAO<DescuentoEntity> implements De
 			}
 			if (UtilObject.isEmpty(entity.getPorcentaje())) {
 				parameters.add(entity.getPorcentaje());
-				where.append(setWhere ? "WHERE " : " AND ").append(" fecha=? ");
+				where.append(setWhere ? where() : and()).append(" fecha=? ");
 				setWhere = false;
 			}
 
 			if (UtilObject.isEmpty(entity.getTipoDescuentoDTO())) {
 				parameters.add(entity.getTipoDescuentoDTO());
-				where.append(setWhere ? "WHERE " : " AND ").append("horaInicio=? ");
-				setWhere = false;
+				where.append(setWhere ? where() : and()).append("horaInicio=? ");
+				
 			}
 
 		}
@@ -185,5 +185,16 @@ public class DescuentoSQLServerDAO extends SQLDAO<DescuentoEntity> implements De
 
 		}
 
+	}
+	@Override
+	protected String where() {
+		
+		return "WHERE ";
+	}
+
+	@Override
+	protected String and() {
+		
+		return " AND ";
 	}
 }

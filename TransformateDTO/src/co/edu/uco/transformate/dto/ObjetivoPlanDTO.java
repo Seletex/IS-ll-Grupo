@@ -6,7 +6,7 @@ import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
-public class OjetivoPlanDTO {
+public class ObjetivoPlanDTO {
 
 	private UUID identificador;
 	private String nombre;
@@ -14,7 +14,7 @@ public class OjetivoPlanDTO {
 	private PlanEntrenamientoDTO planEntrenamientoDTO;
 	private ObjetivoEntrenamientoDTO objetivoEntrenamientoDTO;
 
-	public OjetivoPlanDTO(UUID identificador, String nombre, ObjetivoEntrenamientoDTO objetivoEntrenamientoDTO,
+	public ObjetivoPlanDTO(UUID identificador, String nombre, ObjetivoEntrenamientoDTO objetivoEntrenamientoDTO,
 			String descripcion, PlanEntrenamientoDTO planEntrenamientoDTO) {
 		setDescripcion(descripcion);
 		setObjetivoEntrenamientoDTO(objetivoEntrenamientoDTO);
@@ -23,7 +23,7 @@ public class OjetivoPlanDTO {
 		setNombre(nombre);
 	}
 
-	public OjetivoPlanDTO() {
+	public ObjetivoPlanDTO() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
@@ -32,15 +32,15 @@ public class OjetivoPlanDTO {
 
 	}
 
-	public static OjetivoPlanDTO create() {
-		return new OjetivoPlanDTO();
+	public static ObjetivoPlanDTO create() {
+		return new ObjetivoPlanDTO();
 	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public OjetivoPlanDTO setDescripcion(String descripcion) {
+	public ObjetivoPlanDTO setDescripcion(String descripcion) {
 		this.descripcion = UtilText.getUtilText().applyTrim(descripcion);
 		return this;
 	}
@@ -49,7 +49,7 @@ public class OjetivoPlanDTO {
 		return planEntrenamientoDTO;
 	}
 
-	public OjetivoPlanDTO setPlanEntrenamientoDTO(PlanEntrenamientoDTO planEntrenamientoDTO) {
+	public ObjetivoPlanDTO setPlanEntrenamientoDTO(PlanEntrenamientoDTO planEntrenamientoDTO) {
 		this.planEntrenamientoDTO = UtilObject.getDefault(planEntrenamientoDTO, PlanEntrenamientoDTO.create());
 		return this;
 	}
@@ -58,7 +58,7 @@ public class OjetivoPlanDTO {
 		return objetivoEntrenamientoDTO;
 	}
 
-	public OjetivoPlanDTO setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoDTO objetivoEntrenamientoDTO) {
+	public ObjetivoPlanDTO setObjetivoEntrenamientoDTO(ObjetivoEntrenamientoDTO objetivoEntrenamientoDTO) {
 		this.objetivoEntrenamientoDTO = UtilObject.getDefault(objetivoEntrenamientoDTO,
 				ObjetivoEntrenamientoDTO.create());
 		return this;
@@ -68,7 +68,7 @@ public class OjetivoPlanDTO {
 		return identificador;
 	}
 
-	public final OjetivoPlanDTO setIdentificador(UUID identificador) {
+	public final ObjetivoPlanDTO setIdentificador(UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
 		return this;
 	}
@@ -77,7 +77,7 @@ public class OjetivoPlanDTO {
 		return nombre;
 	}
 
-	public final OjetivoPlanDTO setNombre(String nombre) {
+	public final ObjetivoPlanDTO setNombre(String nombre) {
 		this.nombre = UtilText.getUtilText().applyTrim(nombre);
 		return this;
 	}

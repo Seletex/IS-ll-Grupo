@@ -45,6 +45,10 @@ public class UtilNumber {
 	public static int getDefaultNumber(int value) {
 		return (int) getDefault(value, ZERO);
 	}
+	
+	public static boolean isEmpty(int value) {
+		return UtilObject.isNull(value);
+	}
 
 	public static int getDefaultNumber() {
 		return getDefaultNumber();

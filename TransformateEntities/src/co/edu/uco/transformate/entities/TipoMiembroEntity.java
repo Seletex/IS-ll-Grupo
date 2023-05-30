@@ -10,7 +10,7 @@ import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 public class TipoMiembroEntity {
 	private UUID identificador;
 	private String nombre;
-	private TipoDescuentoEntity tipoDescuentoEntity;
+	private DescuentoEntity descuentoEntity;
 	
 
 	private static final TipoMiembroEntity DEFAULT_OBJECT = new TipoMiembroEntity();
@@ -19,33 +19,33 @@ public class TipoMiembroEntity {
 		return DEFAULT_OBJECT;
 	}
 
-	public static TipoMiembroEntity create(UUID identificadorUuid, String descripcion,TipoDescuentoEntity tipoDescuentoEntity
+	public static TipoMiembroEntity create(UUID identificadorUuid, String descripcion,DescuentoEntity tipoDescuentoEntity
 			) {
 		return new TipoMiembroEntity(identificadorUuid,descripcion,tipoDescuentoEntity);
 	}
 
-	private TipoMiembroEntity(UUID identificador, String nombre, TipoDescuentoEntity tipoDescuentoEntity) {
+	public TipoMiembroEntity(UUID identificador, String nombre, DescuentoEntity tipoDescuentoEntity) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
-		setTipoDescuentoDTO(tipoDescuentoEntity);
+		setDescuentoDTO(tipoDescuentoEntity);
 
 	}
 
 	private TipoMiembroEntity() {
 		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDescuentoDTO(TipoDescuentoEntity.getDefaultObject());
+		setDescuentoDTO(DescuentoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		
 	}
 
-	public final TipoDescuentoEntity getTipoDescuentoDTO() {
-		return tipoDescuentoEntity;
+	public final DescuentoEntity getDescuentoDTO() {
+		return descuentoEntity;
 	}
 
-	private final void setTipoDescuentoDTO(TipoDescuentoEntity tipoDescuentoEntity) {
-		this.tipoDescuentoEntity = UtilObject.getDefault(tipoDescuentoEntity, TipoDescuentoEntity.getDefaultObject());
+	private final void setDescuentoDTO(DescuentoEntity tipoDescuentoEntity) {
+		this.descuentoEntity = UtilObject.getDefault(tipoDescuentoEntity, DescuentoEntity.getDefaultObject());
 	
 	}
 

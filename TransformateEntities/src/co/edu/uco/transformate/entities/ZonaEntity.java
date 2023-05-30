@@ -26,7 +26,7 @@ public class ZonaEntity {
 		return new ZonaEntity(identificador,nombre,descripcion, gimnasioEntity);
 	}
 
-	private ZonaEntity(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity) {
+	public ZonaEntity(UUID identificador, String nombre, String descripcion, GimnasioEntity gimnasioEntity) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);

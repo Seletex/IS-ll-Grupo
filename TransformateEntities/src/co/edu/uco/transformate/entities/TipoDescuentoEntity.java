@@ -22,7 +22,7 @@ public class TipoDescuentoEntity {
 		return new TipoDescuentoEntity(identificadorUuid,descripcion);
 	}
 	
-	private TipoDescuentoEntity(UUID identificador, String nombre) {
+	public TipoDescuentoEntity(UUID identificador, String nombre) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);

@@ -31,5 +31,7 @@ public abstract class SQLDAO<E> {
 	protected abstract String prepareStringOrderBy();
 	protected abstract void setParameters(PreparedStatement preparedStatement, List<Object> parameters);
 	protected abstract List<E> executeQuery(PreparedStatement preparedStatement);
+	protected abstract String where();
+	protected abstract String and();
 	
 }

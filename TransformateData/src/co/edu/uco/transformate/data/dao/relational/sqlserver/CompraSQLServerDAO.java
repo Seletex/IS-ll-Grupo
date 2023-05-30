@@ -101,24 +101,24 @@ public class CompraSQLServerDAO extends SQLDAO<CompraEntity> implements CompraDA
 			}
 			if (UtilDate.getUtilDate().IsEmptyDate(entity.getFechaDate()) != null) {
 				parameters.add(entity.getFechaDate());
-				where.append(setWhere ? "WHERE " : " AND ").append(" fecha=? ");
+				where.append(setWhere ? where() : and()).append(" fecha=? ");
 				setWhere = false;
 			}
 
 			if (UtilObject.isEmpty(entity.getProductoDTO())) {
 				parameters.add(entity.getProductoDTO());
-				where.append(setWhere ? "WHERE " : " AND ").append("producto=? ");
+				where.append(setWhere ? where() : and()).append("producto=? ");
 				setWhere = false;
 			}
 
 			if (UtilObject.isEmpty(entity.getTipoPagoDTO())) {
 				parameters.add(entity.getTipoPagoDTO());
-				where.append(setWhere ? "WHERE " : " AND ").append("tipoPago=? ");
+				where.append(setWhere ? where() : and()).append("tipoPago=? ");
 				setWhere = false;
 			}
 			if (UtilObject.isEmpty(entity.getEstadoPagoDTO())) {
 				parameters.add(entity.getEstadoPagoDTO());
-				where.append(setWhere ? "WHERE " : " AND ").append(" estadoPago=? ");
+				where.append(setWhere ? where() : and()).append(" estadoPago=? ");
 
 			}
 		}
@@ -178,5 +178,17 @@ public class CompraSQLServerDAO extends SQLDAO<CompraEntity> implements CompraDA
 
 		}
 
+	}
+
+	@Override
+	protected String where() {
+		
+		return "WHERE ";
+	}
+
+	@Override
+	protected String and() {
+		
+		return " AND ";
 	}
 }

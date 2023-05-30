@@ -9,30 +9,30 @@ import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 public class TipoMiembroDTO {
 	private UUID identificador;
 	private String nombre;
-	private TipoDescuentoDTO tipoDescuentoDTO;
+	private DescuentoDTO tipoDescuentoDTO;
 
 	public TipoMiembroDTO(UUID identificador, String nombre) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
-		setTipoDescuentoDTO(tipoDescuentoDTO);
+		setDescuentoDTO(tipoDescuentoDTO);
 
 	}
 
 	public TipoMiembroDTO() {
 		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDescuentoDTO(TipoDescuentoDTO.create());
+		setDescuentoDTO(DescuentoDTO.create());
 		setNombre(UtilText.getDefaultValue());
 		
 	}
 
-	public final TipoDescuentoDTO getTipoDescuentoDTO() {
+	public final DescuentoDTO getTipoDescuentoDTO() {
 		return tipoDescuentoDTO;
 	}
 
-	public final TipoMiembroDTO setTipoDescuentoDTO(TipoDescuentoDTO tipoDescuentoDTO) {
-		this.tipoDescuentoDTO = UtilObject.getDefault(tipoDescuentoDTO, TipoDescuentoDTO.create());;
+	public final TipoMiembroDTO setDescuentoDTO(DescuentoDTO tipoDescuentoDTO) {
+		this.tipoDescuentoDTO = UtilObject.getDefault(tipoDescuentoDTO, DescuentoDTO.create());;
 		return this;
 	}
 

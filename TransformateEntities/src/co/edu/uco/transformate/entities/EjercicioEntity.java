@@ -77,7 +77,7 @@ public class EjercicioEntity {
 		
 	}
 
-	public final EquipoEntity getEquipoDTO() {
+	public final EquipoEntity getEquipoEntity() {
 		return equipoEntity;
 	}
 

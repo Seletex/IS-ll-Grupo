@@ -128,7 +128,7 @@ public class ClaseSQLServerDAO extends SQLDAO<ClaseEntity> implements ClaseDAO {
 
 	@Override
 	protected String prepareSelec() {
-		return "SELECT identificacionuuid,fecha, horaInicio,horaFin,entrenador ";
+		return "SELECT identificacion,fecha, horaInicio,horaFin,entrenador ";
 	}
 
 	@Override
@@ -149,24 +149,24 @@ public class ClaseSQLServerDAO extends SQLDAO<ClaseEntity> implements ClaseDAO {
 			}
 			if (UtilDate.getUtilDate().IsEmptyDate(entity.getFechaDate()) != null) {
 				parameters.add(entity.getFechaDate());
-				where.append(setWhere ? "WHERE " : " AND ").append(" fecha=? ");
+				where.append(setWhere ? where() : and()).append(" fecha=? ");
 				setWhere = false;
 			}
 
 			if (UtilDate.getDefaultTime(entity.getHoraInicioDate()) != null) {
 				parameters.add(entity.getHoraInicioDate());
-				where.append(setWhere ? "WHERE " : " AND ").append("horaInicio=? ");
+				where.append(setWhere ? where() : and()).append("horaInicio=? ");
 				setWhere = false;
 			}
 
 			if (UtilDate.getDefaultTime(entity.getHoraFinDate()) != null) {
 				parameters.add(entity.getHoraFinDate());
-				where.append(setWhere ? "WHERE " : " AND ").append("horaFin=? ");
+				where.append(setWhere ? where() : and()).append("horaFin=? ");
 				setWhere = false;
 			}
 			if (UtilObject.isEmpty(entity.getEntrenadorDTO())) {
 				parameters.add(entity.getEntrenadorDTO());
-				where.append(setWhere ? "WHERE " : " AND ").append(" entrenador=? ");
+				where.append(setWhere ? where() : and()).append(" entrenador=? ");
 
 			}
 		}
@@ -226,5 +226,17 @@ public class ClaseSQLServerDAO extends SQLDAO<ClaseEntity> implements ClaseDAO {
 
 		}
 
+	}
+
+	@Override
+	protected String where() {
+		
+		return "WHERE ";
+	}
+
+	@Override
+	protected String and() {
+		
+		return " AND ";
 	}
 }

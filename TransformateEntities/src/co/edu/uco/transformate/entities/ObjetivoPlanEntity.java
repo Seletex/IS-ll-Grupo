@@ -7,7 +7,7 @@ import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
-public class OjetivoPlanEntity {
+public class ObjetivoPlanEntity {
 
 	private UUID identificador;
 	private String nombre;
@@ -15,19 +15,19 @@ public class OjetivoPlanEntity {
 	private PlanEntrenamientoEntity planEntrenamientoEntity;
 	private ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity;
 
-	private static final OjetivoPlanEntity DEFAULT_OBJECT = new OjetivoPlanEntity();
+	private static final ObjetivoPlanEntity DEFAULT_OBJECT = new ObjetivoPlanEntity();
 
-	public static OjetivoPlanEntity getDefaultObject() {
+	public static ObjetivoPlanEntity getDefaultObject() {
 		return DEFAULT_OBJECT;
 	}
 
-	public static OjetivoPlanEntity create(UUID identificador, String nombre,
+	public static ObjetivoPlanEntity create(UUID identificador, String nombre,
 			ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity, String descripcion,
 			PlanEntrenamientoEntity planEntrenamientoEntity) {
-		return new OjetivoPlanEntity(identificador, nombre, objetivoEntrenamientoEntity,descripcion,planEntrenamientoEntity);
+		return new ObjetivoPlanEntity(identificador, nombre, objetivoEntrenamientoEntity,descripcion,planEntrenamientoEntity);
 	}
 
-	public OjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
+	public ObjetivoPlanEntity(UUID identificador, String nombre, ObjetivoEntrenamientoEntity objetivoEntrenamientoEntity,
 			String descripcion, PlanEntrenamientoEntity planEntrenamientoEntity) {
 		setDescripcion(descripcion);
 		setObjetivoEntrenamientoDTO(objetivoEntrenamientoEntity);
@@ -36,7 +36,7 @@ public class OjetivoPlanEntity {
 		setNombre(nombre);
 	}
 
-	private OjetivoPlanEntity() {
+	private ObjetivoPlanEntity() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);

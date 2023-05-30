@@ -24,7 +24,7 @@ public class TipoPagoEntity {
 	}
 	
 
-	private TipoPagoEntity(UUID identificador, String nombre) {
+	public TipoPagoEntity(UUID identificador, String nombre) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
