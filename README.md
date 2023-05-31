@@ -4,7 +4,7 @@
 - 1.1.1) [Visión](Vision.md) 
 - 1.1.2) Restricciones diseño:
 	- 1.1.2.1)Atributos de calidad 
-		- 1.1.2.1.1)[Mapa de empatía]()
+		- 1.1.2.1.1)[Mapa de empatía](MapaEmpatia.md)
 		- 1.1.2.1.2)[Características]()
 			 - 1.1.2.1.2.1)Atributos de calidad <>
 			    - 1.1.2.1.2.2)[Priorización]()
