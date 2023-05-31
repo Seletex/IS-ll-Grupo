@@ -7,7 +7,7 @@ import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilText;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 
-public class OjetivoPlanDomain {
+public class ObjetivoPlanDomain {
 
 	private UUID identificador;
 	private String nombre;
@@ -15,19 +15,19 @@ public class OjetivoPlanDomain {
 	private PlanEntrenamientoDomain planEntrenamientoDomain;
 	private ObjetivoEntrenamientoDomain objetivoEntrenamientoDomain;
 
-	private static final OjetivoPlanDomain DEFAULT_OBJECT = new OjetivoPlanDomain();
+	private static final ObjetivoPlanDomain DEFAULT_OBJECT = new ObjetivoPlanDomain();
 
-	public static OjetivoPlanDomain getDefaultObject() {
+	public static ObjetivoPlanDomain getDefaultObject() {
 		return DEFAULT_OBJECT;
 	}
 
-	public static OjetivoPlanDomain create(UUID identificador, String nombre,
+	public static ObjetivoPlanDomain create(UUID identificador, String nombre,
 			ObjetivoEntrenamientoDomain objetivoEntrenamientoDomain, String descripcion,
 			PlanEntrenamientoDomain planEntrenamientoDomain) {
-		return new OjetivoPlanDomain(identificador, nombre, objetivoEntrenamientoDomain,descripcion,planEntrenamientoDomain);
+		return new ObjetivoPlanDomain(identificador, nombre, objetivoEntrenamientoDomain,descripcion,planEntrenamientoDomain);
 	}
 
-	public OjetivoPlanDomain(UUID identificador, String nombre, ObjetivoEntrenamientoDomain objetivoEntrenamientoDomain,
+	public ObjetivoPlanDomain(UUID identificador, String nombre, ObjetivoEntrenamientoDomain objetivoEntrenamientoDomain,
 			String descripcion, PlanEntrenamientoDomain planEntrenamientoDomain) {
 		setDescripcion(descripcion);
 		setObjetivoEntrenamientoDTO(objetivoEntrenamientoDomain);
@@ -36,7 +36,7 @@ public class OjetivoPlanDomain {
 		setNombre(nombre);
 	}
 
-	private OjetivoPlanDomain() {
+	private ObjetivoPlanDomain() {
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setNombre(UtilText.getDefaultValue());
 		setDescripcion(UtilText.EMPTY);
@@ -45,8 +45,8 @@ public class OjetivoPlanDomain {
 
 	}
 
-	public static OjetivoPlanDomain create() {
-		return new OjetivoPlanDomain();
+	public static ObjetivoPlanDomain create() {
+		return new ObjetivoPlanDomain();
 	}
 
 	public String getDescripcion() {

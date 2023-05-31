@@ -13,5 +13,5 @@ void create(EquipoEntity entity);
 	
 	
 	
-	void delete(EquipoEntity entity);
+	
 }
