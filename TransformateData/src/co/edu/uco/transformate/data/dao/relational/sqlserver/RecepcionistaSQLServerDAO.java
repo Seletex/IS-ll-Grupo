@@ -25,8 +25,7 @@ public class RecepcionistaSQLServerDAO extends SQLDAO<RecepcionistaEntity> imple
 
 	@Override
 	public void create(RecepcionistaEntity entity) {
-		final var sqlStatement = "INSERT INTO Recepcionista (identificador, tipoDocumento,identificacion,"
-				+ "nombre, usuario,contraseñ,telefono,salario,gimnasio) ";
+		final var sqlStatement = "INSERT INTO Recepcionista (identificador, tipoDocumento,identificacion,nombre, usuario,contraseñ,telefono,salario,gimnasio) ";
 		try (var preparedStatement = getConnection().prepareStatement(sqlStatement)) {
 			preparedStatement.setObject(1, entity.getIdentificador());
 			preparedStatement.setObject(2, entity.getTipoDocumentoDTO());

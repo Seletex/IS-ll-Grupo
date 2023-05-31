@@ -12,5 +12,5 @@ void create(FacturaEntity entity);
 	
 	
 	
-	void delete(FacturaEntity entity);
+
 }
