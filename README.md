@@ -1,7 +1,7 @@
 # IS-ll-Grupo
 ## 1)Diseño 
 ### 1.1)Diseño alto nivel 
-- 1.1.1) [Visión]() 
+- 1.1.1) [Visión](Vision.md) 
 - 1.1.2) Restricciones diseño:
 	- 1.1.2.1)Atributos de calidad 
 		- 1.1.2.1.1)[Mapa de empatía]()
