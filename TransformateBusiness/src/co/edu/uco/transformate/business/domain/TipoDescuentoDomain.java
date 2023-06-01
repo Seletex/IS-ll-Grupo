@@ -22,7 +22,7 @@ public class TipoDescuentoDomain {
 		return new TipoDescuentoDomain(identificadorUuid,descripcion);
 	}
 	
-	private TipoDescuentoDomain(UUID identificador, String nombre) {
+	public TipoDescuentoDomain(UUID identificador, String nombre) {
 	
 		setIdentificador(identificador);
 		setNombre(nombre);
