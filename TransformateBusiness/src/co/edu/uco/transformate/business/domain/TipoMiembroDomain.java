@@ -10,7 +10,7 @@ import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 public class TipoMiembroDomain {
 	private UUID identificador;
 	private String nombre;
-	private TipoDescuentoDomain tipoDescuentoDomain;
+	private DescuentoDomain tipoDescuentoDomain;
 	
 
 	private static final TipoMiembroDomain DEFAULT_OBJECT = new TipoMiembroDomain();
@@ -19,12 +19,12 @@ public class TipoMiembroDomain {
 		return DEFAULT_OBJECT;
 	}
 
-	public static TipoMiembroDomain create(UUID identificadorUuid, String descripcion,TipoDescuentoDomain tipoDescuentoDomain
+	public static TipoMiembroDomain create(UUID identificadorUuid, String descripcion,DescuentoDomain tipoDescuentoDomain
 			) {
 		return new TipoMiembroDomain(identificadorUuid,descripcion,tipoDescuentoDomain);
 	}
 
-	private TipoMiembroDomain(UUID identificador, String nombre, TipoDescuentoDomain tipoDescuentoDomain) {
+	public TipoMiembroDomain(UUID identificador, String nombre, DescuentoDomain tipoDescuentoDomain) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -35,17 +35,17 @@ public class TipoMiembroDomain {
 	private TipoMiembroDomain() {
 		
 		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoDescuentoDTO(TipoDescuentoDomain.getDefaultObject());
+		setTipoDescuentoDTO(DescuentoDomain.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		
 	}
 
-	public final TipoDescuentoDomain getTipoDescuentoDTO() {
+	public final DescuentoDomain getTipoDescuentoDTO() {
 		return tipoDescuentoDomain;
 	}
 
-	private final void setTipoDescuentoDTO(TipoDescuentoDomain tipoDescuentoDomain) {
-		this.tipoDescuentoDomain = UtilObject.getDefault(tipoDescuentoDomain, TipoDescuentoDomain.getDefaultObject());
+	private final void setTipoDescuentoDTO(DescuentoDomain tipoDescuentoDomain) {
+		this.tipoDescuentoDomain = UtilObject.getDefault(tipoDescuentoDomain, DescuentoDomain.getDefaultObject());
 	
 	}
 

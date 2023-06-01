@@ -24,7 +24,7 @@ public class TipoPagoDomain {
 	}
 	
 
-	private TipoPagoDomain(UUID identificador, String nombre) {
+	public TipoPagoDomain(UUID identificador, String nombre) {
 		
 		setIdentificador(identificador);
 		setNombre(nombre);
