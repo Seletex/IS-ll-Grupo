@@ -11,8 +11,6 @@
 	  -  1.1.2.1.3)Escenarios de calidad 
           - 1.1.2.1.3.1)[Atributos de calidad](1.1.2.1.3.1.md)
           - 1.1.2.1.3.2)[Escenarios de calidad](1.1.2.1.3.2.md)
-          - 1.1.2.1.3.1)Atributos de calidad <>
-          - 1.1.2.1.3.2)Escenarios de calidad <>
 	  - 1.1.2.1.4)[Estrategias y tácticas](1.1.2.1.4.md) 
   - 1.1.2.2)Funcionalidades criticas 
 	  - 1.1.2.2.1)[Funcionalidad](1.1.2.2.1.md)
@@ -51,7 +49,7 @@
 	 - 1.2.2.2)[Diagrama de objetos](1.2.2.2.md) 
 	 - 1.2.2.3)[Modelo de datos](1.2.2.3.md)
 - 1.2.3)Vista implementación 
-	 - 1.2.3.1)[Diagrama de Comportamiento](1.2.3.1.md)
+	 - 1.2.3.1)[Diagrama de Componentes](1.2.3.1.md)
 	 - 1.2.3.2)[Diagrama de paquetes](1.2.3.2.md) 
 - 1.2.4)Vista de procesos 
 	 - 1.2.4.1)[Diagrama de secuencia](1.2.4.1.md)
