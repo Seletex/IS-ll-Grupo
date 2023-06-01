@@ -9,8 +9,13 @@
 			 - 1.1.2.1.2.1)[Atributos de Calidad](1.1.2.1.2.1.md)
 			    - 1.1.2.1.2.2)[Priorización](1.1.2.1.2.2.md)
 	  -  1.1.2.1.3)Escenarios de calidad 
+<<<<<<< HEAD
           - 1.1.2.1.3.1)[Atributos de calidad](1.1.2.1.3.1.md)
           - 1.1.2.1.3.2)[Escenarios de calidad](1.1.2.1.3.2.md)
+=======
+          - 1.1.2.1.3.1)Atributos de calidad <>
+          - 1.1.2.1.3.2)Escenarios de calidad <>
+>>>>>>> d0d1a955478db02628668795b3afe496e124ca42
 	  - 1.1.2.1.4)[Estrategias y tácticas](1.1.2.1.4.md) 
   - 1.1.2.2)Funcionalidades criticas 
 	  - 1.1.2.2.1)Funcionalidad<>
