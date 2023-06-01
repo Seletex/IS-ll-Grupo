@@ -9,20 +9,15 @@
 			 - 1.1.2.1.2.1)[Atributos de Calidad](1.1.2.1.2.1.md)
 			    - 1.1.2.1.2.2)[Priorización](1.1.2.1.2.2.md)
 	  -  1.1.2.1.3)Escenarios de calidad 
-<<<<<<< HEAD
           - 1.1.2.1.3.1)[Atributos de calidad](1.1.2.1.3.1.md)
           - 1.1.2.1.3.2)[Escenarios de calidad](1.1.2.1.3.2.md)
-=======
-          - 1.1.2.1.3.1)Atributos de calidad <>
-          - 1.1.2.1.3.2)Escenarios de calidad <>
->>>>>>> d0d1a955478db02628668795b3afe496e124ca42
 	  - 1.1.2.1.4)[Estrategias y tácticas](1.1.2.1.4.md) 
   - 1.1.2.2)Funcionalidades criticas 
-	  - 1.1.2.2.1)Funcionalidad<>
+	  - 1.1.2.2.1)[Funcionalidad](1.1.2.2.1.md)
   - 1.1.2.3)Restricciones técnicas 
-	  - 1.1.2.3.1)Restricción<>
+	  - 1.1.2.3.1)[Restricción](1.1.2.3.1.md)
   - 1.1.2.4)Restricciones de negocio 
-	  - 1.1.2.4.1)Restricción<>
+	  - 1.1.2.4.1)[Restricción](1.1.2.4.1.md)
  - 1.1.3)Alternativa de solución 
 	 - 1.1.3.1)[Justificación cumplimiento restricciones de diseño](1.1.3.1.md)
 	 - 1.1.3.2)Arquitectura de referencia 
@@ -32,8 +27,10 @@
 		 - 1.1.3.3.1)[Diseño](1.1.3.3.1.md)
 	 	 - 1.1.3.3.2)[Explicación](1.1.3.3.2.md)
 	 - 1.1.3.4)Plataforma tecnológica
-		 - 1.1.3.4.1)Componente<>
-		 - 1.1.3.4.N)Componente <>
+		 - 1.1.3.4.1)[Lenguajes de programación](1.1.3.4.1.md)
+		 - 1.1.3.4.2)[Bases de datos](1.1.3.4.2.md)
+		 - 1.1.3.4.3)[Servidores web](1.1.3.4.3.md)
+		 - 1.1.3.4.4)[Protocolos de comunicación](1.1.3.4.4.md)
 ### 1.2)Diseño detallado
  - 1.2.1)Vista funcional 
 	 - 1.2.1.1)[Event storming](1.2.1.1.md)
@@ -41,11 +38,12 @@
 		 - 1.2.1.2.1)[Anémico](1.2.1.2.1.md)
 		 - 1.2.1.2.2)[Enriquecido](1.2.1.2.2.md)
 	 - 1.2.1.3)Diagrama de actividades 
-		 - 1.2.1.3.1)Transacción 1<>
-		 - 1.2.1.3.N)Transacción N<>
+		 - 1.2.1.3.1)[Registrar Usuario](1.2.1.3.1.md)
+		 - 1.2.1.3.2)[Iniciar sesion](1.2.1.3.2.md)
+		 - 1.2.1.3.3)[Realizar pago](1.2.1.3.3.md)
+		 - 1.2.1.3.4)[Acceder al gimnasio](1.2.1.3.4.md)
 	 - 1.2.1.4)Diagrama de estado 
-		 - 1.2.1.4.1)Modelado estado <>
-		 - 1.2.1.4.N)Modelado de estado <>
+		 - 1.2.1.4.1)[Tipo membresia](1.2.1.4.1.md)
 - 1.2.2)Vista lógica 
 	 - 1.2.2.1)[Diagrama de clases](1.2.2.1.md)
 	 - 1.2.2.2)[Diagrama de objetos](1.2.2.2.md) 
