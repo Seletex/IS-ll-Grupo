@@ -50,7 +50,7 @@ public class EntrenadorDomain {
 
 	private EntrenadorDomain() {
 		
-		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setIdentificador(UtilUUID.genereteNewUUID());
 		setTipoDocumentoDTO(TipoDocumentoDomain.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setIdentificacion(UtilText.EMPTY);

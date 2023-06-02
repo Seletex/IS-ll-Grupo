@@ -4,12 +4,9 @@ import java.util.List;
 
 import co.edu.uco.transformate.business.assembler.Assembler;
 import co.edu.uco.transformate.business.domain.RutinaDomain;
-import co.edu.uco.transformate.business.domain.TipoEgresoDomain;
-import co.edu.uco.transformate.dto.EntrenadorDTO;
+
 import co.edu.uco.transformate.dto.RutinaDTO;
-import co.edu.uco.transformate.dto.TipoEgresoDTO;
 import co.edu.uco.transformate.entities.RutinaEntity;
-import co.edu.uco.transformate.entities.TipoEgresoEntity;
 
 public class RutinaAssembler implements Assembler<RutinaDomain, RutinaDTO, RutinaEntity> {
 

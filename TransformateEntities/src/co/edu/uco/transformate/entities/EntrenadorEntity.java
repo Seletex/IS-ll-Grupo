@@ -50,7 +50,7 @@ public class EntrenadorEntity {
 
 	private EntrenadorEntity() {
 		
-		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setIdentificador(UtilUUID.genereteNewUUID());
 		setTipoDocumentoDTO(TipoDocumentoEntity.getDefaultObject());
 		setNombre(UtilText.getDefaultValue());
 		setIdentificacion(UtilText.EMPTY);

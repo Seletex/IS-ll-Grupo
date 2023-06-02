@@ -99,4 +99,18 @@ private SQLServerDAOMessage() {
 			public static final String TECHNICAL_PROBLEM_SQL_DAO_PROBLEM_STRING ="No se ha podido crear el EstadoTipoRelacionInstitucionSQLServerDAO , debido a la mconexion no esta abierta ";
 
 		}
+		
+public static final class ValidationMessage{
+			
+			private ValidationMessage() {
+				
+			}
+			public static final String SUCxCESS ="Se ha presentado un problema tratando de llevar a cabo la operación sobre el Estado del Tipo Relacion Institucion. Porfavor intentelo de nuevo y si el problema persiste contacte al administrador ";
+			
+			public static final String PROBLEM_WITH_TRANSACTION ="Se ha presentado un problema tratando de llevar a cabo la operación sobre el Estado del Tipo Relacion Institucion. Porfavor intentelo de nuevo y si el problema persiste contacte al administrador ";
+
+			public static final String USER_PROBLEM_SQL_DAO_PROBLEM_STRING ="Se ha presentado un problema tratando de llevar a cabo la operación sobre el Estado del Tipo Relacion Institucion. Porfavor intentelo de nuevo y si el problema persiste contacte al administrador ";
+			public static final String TECHNICAL_PROBLEM_SQL_DAO_PROBLEM_STRING ="No se ha podido crear el EstadoTipoRelacionInstitucionSQLServerDAO , debido a la mconexion no esta abierta ";
+
+		}
 }
