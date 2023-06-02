@@ -34,32 +34,30 @@ public class DescuentoAssembler implements Assembler<DescuentoDomain, DescuentoD
 
 	@Override
 	public DescuentoDomain toDomainFromDTO(DescuentoDTO dto) {
-<<<<<<< Updated upstream
 		return new DescuentoDomain(dto.getIdentificadorUuid(), dto.getPorcentaje(),
 				TipoDescuentoAssembler.getInstance().toDomainFromDTO(dto.getTipoDescuentoDTO()));
-=======
-		return new DescuentoDomain(dto.getIdentificadorUuid(), dto.getPorcentaje(), null);
->>>>>>> Stashed changes
+
+		
+
 	}
 
 	@Override
 	public DescuentoEntity toEntityFromDomain(DescuentoDomain domain) {
-<<<<<<< Updated upstream
 		return new DescuentoEntity(domain.getIdentificadorUuid(), domain.getPorcentaje(),
 				TipoDescuentoEntity.create(UtilUUID.DEFAULT_UUID, UtilText.EMPTY));
-=======
-		return new DescuentoEntity(domain.getIdentificadorUuid(), domain.getPorcentaje());
->>>>>>> Stashed changes
+
+	
+
 	}
 
 	@Override
 	public DescuentoDomain toDomainFromEntity(DescuentoEntity entity) {
-<<<<<<< Updated upstream
+
 		return new DescuentoDomain(entity.getIdentificadorUuid(), entity.getPorcentaje(),
 				TipoDescuentoAssembler.getInstance().toDomainFromEntity(entity.getTipoDescuentoDTO()));
-=======
-		return new DescuentoDomain(entity.getIdentificadorUuid(), entity.getPorcentaje());
->>>>>>> Stashed changes
+
+		
+
 	}
 
 	@Override
