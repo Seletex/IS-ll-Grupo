@@ -89,7 +89,7 @@ public class GimnasioController {
 				facade = new GimnasioFacadeImpl();
 				facade.create(dto);
 				response.getMessageStrings()
-						.add("El nuevo estado tipo relacion institucion se ha registrado de forma satisfacoria");
+						.add("El nuevo gimnasio se ha registrado de forma satisfacoria");
 
 			} else {
 				statusCode = HttpStatus.BAD_REQUEST;

@@ -7,6 +7,7 @@ import co.edu.uco.transformate.api.validator.Result;
 import co.edu.uco.transformate.api.validator.Validation;
 import co.edu.uco.transformate.crosscutting.utils.UtilObject;
 import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
+import co.edu.uco.transformate.crosscutting.utils.Messages.ValidationMessage;
 
 public class IdentificadorValidation implements Validation<UUID>{
 
@@ -24,9 +25,9 @@ public class IdentificadorValidation implements Validation<UUID>{
 		final var result = Result.create();
 		if (UtilObject.isNull(data)) {
 			result.addMessage(
-					"No es posible continuar con identificador del estado del tip relacion institucion vacio");
+					ValidationMessage.PROBLEM_WITH_TRANSACTION);
 		} else if (UtilUUID.isDefaut(data)) {
-			result.addMessage("No es posible tener el identificador por defecto del estado tipo relacion institucion");
+			result.addMessage(ValidationMessage.PROBLEM_WITH_TRANSACTION);
 
 		}
 		return result;

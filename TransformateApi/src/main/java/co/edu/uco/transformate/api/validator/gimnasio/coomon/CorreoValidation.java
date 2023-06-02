@@ -2,6 +2,7 @@ package co.edu.uco.transformate.api.validator.gimnasio.coomon;
 
 import co.edu.uco.transformate.api.validator.Result;
 import co.edu.uco.transformate.api.validator.Validation;
+import co.edu.uco.transformate.crosscutting.utils.Messages.ValidationMessage;
 
 public class CorreoValidation implements Validation<String> {
 
@@ -20,12 +21,12 @@ public class CorreoValidation implements Validation<String> {
 		var result = Result.create();
 
 		if (data.length()<50) {// validar longitud de la cadena
-			result.addMessage("No es posible tener el corre por defecto por favor escriba algo diferente");
+			result.addMessage(ValidationMessage.PROBLEM_WITH_TRANSACTION);
 		}
 		if (true) {// validar solo puede contener letras y es pacios
-			result.addMessage("No es posible tener el nombre por defecto del estado tipo relacion institucion");
+			result.addMessage(ValidationMessage.PROBLEM_WITH_TRANSACTION);
 		}
-		result.addMessage("No es posible tener el nombre por defecto del estado tipo relacion institucion");
+		result.addMessage(ValidationMessage.PROBLEM_WITH_TRANSACTION);
 
 		return result;
 	
