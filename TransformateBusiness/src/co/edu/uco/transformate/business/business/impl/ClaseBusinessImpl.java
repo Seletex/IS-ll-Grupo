@@ -1,5 +1,5 @@
 package co.edu.uco.transformate.business.business.impl;
 
-public class ClaseAssembler {
+public class ClaseBusinessImpl {
 
 }

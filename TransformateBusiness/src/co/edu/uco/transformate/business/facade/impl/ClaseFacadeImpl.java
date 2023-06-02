@@ -1,5 +1,5 @@
 package co.edu.uco.transformate.business.facade.impl;
 
-public class ClaseAssembler {
+public class ClaseFacadeImpl {
 
 }

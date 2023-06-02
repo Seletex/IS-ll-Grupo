@@ -78,8 +78,9 @@ public final class ClaseDTO {
 		return entrenadorDTO;
 	}
 
-	public void setEntrenadorDTO(EntrenadorDTO entrenadorDTO) {
+	public ClaseDTO setEntrenadorDTO(EntrenadorDTO entrenadorDTO) {
 		this.entrenadorDTO = UtilObject.getDefault(entrenadorDTO, EntrenadorDTO.create());
+		return this;
 	}
 
 }
