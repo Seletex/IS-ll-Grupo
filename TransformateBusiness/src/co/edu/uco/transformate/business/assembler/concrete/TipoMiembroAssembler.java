@@ -12,6 +12,9 @@ import co.edu.uco.transformate.entities.DescuentoEntity;
 import co.edu.uco.transformate.entities.TipoDescuentoEntity;
 import co.edu.uco.transformate.entities.TipoMiembroEntity;
 
+
+
+
 public class TipoMiembroAssembler implements Assembler<TipoMiembroDomain, TipoMiembroDTO, TipoMiembroEntity> {
 
 	private static final Assembler<TipoMiembroDomain, TipoMiembroDTO, TipoMiembroEntity> INSTANCE_ASSEMBLER = new TipoMiembroAssembler();
@@ -37,14 +40,22 @@ public class TipoMiembroAssembler implements Assembler<TipoMiembroDomain, TipoMi
 
 	@Override
 	public TipoMiembroEntity toEntityFromDomain(TipoMiembroDomain domain) {
+
 		return new TipoMiembroEntity(domain.getIdentificador(), domain.getNombre(),
 				DescuentoEntity.create(UtilUUID.DEFAULT_UUID, UtilNumber.ZERO,
 						TipoDescuentoEntity.create(UtilUUID.DEFAULT_UUID, UtilText.EMPTY)));
+
+		
+
 	}
 
 	@Override
 	public TipoMiembroDomain toDomainFromEntity(TipoMiembroEntity entity) {
+
 		return new TipoMiembroDomain(entity.getIdentificador(), entity.getNombre(), DescuentoAssembler.getInstance().toDomainFromEntity(entity.getDescuentoDTO()));
+
+
+
 	}
 
 	@Override

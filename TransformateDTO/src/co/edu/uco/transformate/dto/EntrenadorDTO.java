@@ -38,7 +38,7 @@ public class EntrenadorDTO {
 
 	public EntrenadorDTO() {
 		super();
-		setIdentificador(UtilUUID.DEFAULT_UUID);
+		setIdentificador(UtilUUID.genereteNewUUID());
 		setTipoDocumentoDTO(TipoDocumentoDTO.create());
 		setNombre(UtilText.getDefaultValue());
 		setIdentificacion(UtilText.EMPTY);

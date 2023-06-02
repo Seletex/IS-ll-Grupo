@@ -49,9 +49,9 @@ public class EntrenadorAssembler implements Assembler<EntrenadorDomain, Entrenad
 	@Override
 	public EntrenadorEntity toEntityFromDomain(EntrenadorDomain domain) {
 		return new EntrenadorEntity(domain.getIdentificador(),
-				TipoDocumentoEntity.create(UtilUUID.DEFAULT_UUID, UtilText.EMPTY), domain.getIdentificacion(),
+				TipoDocumentoEntity.create(UtilUUID.genereteNewUUID(), UtilText.EMPTY), domain.getIdentificacion(),
 				domain.getNombre(), domain.getUsuario(), domain.getConstraseña(), domain.getTelefono(),
-				domain.getSalario(), GimnasioEntity.create(UtilUUID.DEFAULT_UUID, UtilText.EMPTY, UtilText.EMPTY,
+				domain.getSalario(), GimnasioEntity.create(UtilUUID.genereteNewUUID(), UtilText.EMPTY, UtilText.EMPTY,
 						UtilText.EMPTY, UtilText.EMPTY, UtilDate.DEFAULT_DATE_TIME, UtilDate.DEFAULT_DATE_TIME));
 	}
 

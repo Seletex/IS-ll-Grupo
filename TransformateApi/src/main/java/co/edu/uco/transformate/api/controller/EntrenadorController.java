@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,52 +17,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import co.edu.uco.transformate.api.controller.response.Response;
-import co.edu.uco.transformate.api.validator.gimnasio.RegistrarGimnasioValidation;
-import co.edu.uco.transformate.business.facade.GimnasioFacade;
 
-import co.edu.uco.transformate.business.facade.impl.GimnasioFacadeImpl;
+import co.edu.uco.transformate.api.validator.entrenador.RegisterEntrenadorValidation;
+import co.edu.uco.transformate.business.facade.EntrenadorFacade;
+import co.edu.uco.transformate.business.facade.impl.EntrenadorFacadeImpl;
 import co.edu.uco.transformate.crosscutting.exception.TransformateApiException;
 import co.edu.uco.transformate.crosscutting.exception.TransformateException;
-import co.edu.uco.transformate.dto.GimnasioDTO;
-
+import co.edu.uco.transformate.dto.EntrenadorDTO;
 
 @RestController
-@RequestMapping("transformate/api/v1/gimnasio")
-public class GimnasioController {
+@RequestMapping("transformate/api/v1/entrenador")
+public class EntrenadorController {
 
-	private final Logger log = LoggerFactory.getLogger(GimnasioController.class);
+	private final Logger log = LoggerFactory.getLogger(EntrenadorController.class);
 
-	private GimnasioFacade facade;
+	private EntrenadorFacade facade;
 
 	@GetMapping("/dummy")
 
-	public GimnasioDTO dummy() {
-		return GimnasioDTO.create();
+	public EntrenadorDTO dummy() {
+		return EntrenadorDTO.create();
 	}
 	
 	@GetMapping
-	public ResponseEntity<Response<GimnasioDTO>> list(
-			@RequestBody GimnasioDTO dto) {
-		final List<GimnasioDTO> list = new ArrayList<>();
-		list.add(GimnasioDTO.create());
-		list.add(GimnasioDTO.create());
-		list.add(GimnasioDTO.create());
-		list.add(GimnasioDTO.create());
+	public ResponseEntity<Response<EntrenadorDTO>> list(
+			@RequestBody EntrenadorDTO dto) {
+		final List<EntrenadorDTO> list = new ArrayList<>();
+		list.add(EntrenadorDTO.create());
+		list.add(EntrenadorDTO.create());
+		list.add(EntrenadorDTO.create());
+		list.add(EntrenadorDTO.create());
 
 		final List<String> messages = new ArrayList<>();
 		messages.add("Estado de tipo relacion institucion consultados existosamente");
-		final Response<GimnasioDTO> response = new Response<>(list, messages);
+		final Response<EntrenadorDTO> response = new Response<>(list, messages);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Response<GimnasioDTO>> listById(@RequestBody GimnasioDTO dto) {
+	public ResponseEntity<Response<EntrenadorDTO>> listById(@RequestBody EntrenadorDTO dto) {
 		var statusCode = HttpStatus.OK;
-		final var response = new Response<GimnasioDTO>();
+		final var response = new Response<EntrenadorDTO>();
 		
 		try {
-			//final var result = RegistrarEstadoTipoRelacionInstitucionValidation.validate(dto);
+	
 			throw TransformateApiException.create("Se ha consultado con exito");
 			
 			}catch (final TransformateException exception) {
@@ -78,22 +77,22 @@ public class GimnasioController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Response<GimnasioDTO>> create(
-			@RequestBody GimnasioDTO dto) {
+	public ResponseEntity<Response<EntrenadorDTO>> create(
+			@RequestBody EntrenadorDTO dto) {
 		var statusCode = HttpStatus.OK;
-		final var response = new Response<GimnasioDTO>();
+		final var response = new Response<EntrenadorDTO>();
 
 		try {
-			final	var result = RegistrarGimnasioValidation.validate(dto);
+			final	var result = RegisterEntrenadorValidation.validate(dto);
 			if (result.getMessages().isEmpty()) {
-				facade = new GimnasioFacadeImpl();
+				facade = new EntrenadorFacadeImpl();
 				facade.create(dto);
 				response.getMessageStrings()
 						.add("El nuevo estado tipo relacion institucion se ha registrado de forma satisfacoria");
 
 			} else {
 				statusCode = HttpStatus.BAD_REQUEST;
-				response.setMessageStrings(result.getMessages());
+				response.setMessageStrings(( result).getMessages());
 			}
 		} catch (final TransformateException exception) {
 			statusCode = HttpStatus.BAD_REQUEST;
@@ -109,11 +108,13 @@ public class GimnasioController {
 	}
 	
 	@PutMapping("/{id}")
-	public GimnasioDTO update(@PathVariable UUID id,
-			@RequestBody GimnasioDTO dto) {
+	public EntrenadorDTO update(@PathVariable UUID id,
+			@RequestBody EntrenadorDTO dto) {
 		return dto.setIdentificador(id);
 	}
 
-	
-	
+	@DeleteMapping("/{id}")
+	public EntrenadorDTO update(@PathVariable UUID id) {
+		return EntrenadorDTO.create().setIdentificador(id);
+	}
 }
