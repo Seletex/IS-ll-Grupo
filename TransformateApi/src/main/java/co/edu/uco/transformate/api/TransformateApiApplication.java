@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TransformateApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TransformateApiApplication.class, args);
+		SpringApplication.run(TransformateApiApplication.class, args); 
 	}
 
 }
