@@ -25,7 +25,7 @@ public class TipoDocumentoController {
 
 	private final Logger log = LoggerFactory.getLogger(TipoDocumentoController.class);
 
-	private TipoDocumentoFacade facade;
+	
 
 	@GetMapping("/dummy")
 

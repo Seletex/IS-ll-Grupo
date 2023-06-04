@@ -3,6 +3,7 @@ package co.edu.uco.transformate.data.dao.factory.relational.postgresql;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import co.edu.uco.transformate.crosscutting.exception.TransformateCrossCuttingException;
 import co.edu.uco.transformate.crosscutting.utils.UtilSql;
 import co.edu.uco.transformate.data.dao.ClaseDAO;
 import co.edu.uco.transformate.data.dao.CompraDAO;
@@ -69,7 +70,7 @@ public final class PostgreSQLDAOFactory  extends DAOFactory{
 			try {
 				UtilSql.initTransaction(connection);
 			} catch (SQLException exception) {
-				
+				throw TransformateCrossCuttingException.create("No ha sido posible iniciar la transaccion. Porfavor intentelo de nuevo, si el problema persiste contacte al administrador");
 			}
 			
 		}
@@ -84,7 +85,7 @@ public final class PostgreSQLDAOFactory  extends DAOFactory{
 			try {
 				UtilSql.rollBackTransaction(connection);
 			} catch (SQLException e) {
-				
+				throw TransformateCrossCuttingException.create("No ha sido posible devolver la transaccion. Porfavor intentelo de nuevo, si el problema persiste contacte al administrador");
 			}
 			
 		}
@@ -93,185 +94,162 @@ public final class PostgreSQLDAOFactory  extends DAOFactory{
 	@Override
 	public ClaseDAO getClaseDAO() {
 		
-		return null;
+		return getClaseDAO();
 	}
 	@Override
 	public CompraDAO getCompraDAO() {
-		return null;
+		return getCompraDAO();
 	}
 	@Override
 	public DescuentoDAO getDescuentoDAO() {
-		return null;
+		return getDescuentoDAO();
 	}
 	@Override
 	public EgresoDAO getEgresoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getEgresoDAO();
 	}
 	@Override
 	public EjercicioDAO getEjercicioDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getEjercicioDAO();
 	}
 	@Override
 	public EntrenadorDAO getEntrenadorDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getEntrenadorDAO();
 	}
 	@Override
 	public EquipoDAO getEquipoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getEquipoDAO();
 	}
 	@Override
 	public EstadoPagoDAO getEstadoPagoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getEstadoPagoDAO();
 	}
 	@Override
 	public EventoDAO getEventoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getEventoDAO();
 	}
 	@Override
 	public FacturaDAO getFacturaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getFacturaDAO();
 	}
 	@Override
 	public GerenteDAO getGerenteDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getGerenteDAO();
 	}
 	@Override
 	public GimnasioDAO getGimnasioDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getGimnasioDAO();
 	}
 	@Override
 	public HistorialClaseDAO getHistorialClaseDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getHistorialClaseDAO();
 	}
 	@Override
 	public HistorialNotaMedicaDAO getHistorialNotaMedicaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getHistorialNotaMedicaDAO();
 	}
 	@Override
 	public HistorialProgresoDAO getHistorialProgresoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHistorialProgresoDAO() ;
 	}
 	@Override
 	public HistorialPruebaFisicaDAO getHistorialPruebaFisicaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHistorialPruebaFisicaDAO();
 	}
 	@Override
 	public InformeFinancieroDAO getInformeFinancieroDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getInformeFinancieroDAO();
 	}
 	@Override
 	public MembresiaDAO getMembresiaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getMembresiaDAO();
 	}
 	@Override
 	public MiembroDAO getMiembroDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getMiembroDAO();
 	}
 	@Override
 	public NivelDificultadDAO getDificultadDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getDificultadDAO();
 	}
 	@Override
 	public NotaMedicaDAO getNotaMedicaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getNotaMedicaDAO();
 	}
 	@Override
 	public ObjetivoEntrenamientoDAO getObjetivoEntrenamientoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getObjetivoEntrenamientoDAO();
 	}
 	@Override
 	public ObjetivoPlanDAO getObjetivoPlanDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getObjetivoPlanDAO();
 	}
 	@Override
 	public PlanEntrenamientoDAO getPlanEntrenamientoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getPlanEntrenamientoDAO();
 	}
 	@Override
 	public ProductoDAO getProductoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getProductoDAO();
 	}
 	@Override
 	public ProgresoDAO getProgresoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getProgresoDAO();
 	}
 	@Override
 	public PruebaFisicaDAO getPruebaFisicaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getPruebaFisicaDAO() ;
 	}
 	@Override
 	public RecepcionistaDAO getRecepcionistaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getRecepcionistaDAO();
 	}
 	@Override
 	public RutinaDAO getRutinaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getRutinaDAO();
 	}
 	@Override
 	public TipoDescuentoDAO geTipoDescuentoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoDescuentoDAO();
 	}
 	@Override
 	public TipoDocumentoDAO geTipoDocumentoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoDocumentoDAO();
 	}
 	@Override
 	public TipoEgresoDAO getTipoEgresoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getTipoEgresoDAO();
 	}
 	@Override
 	public TipoMembresiaDAO geTipoMembresiaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoMembresiaDAO();
 	}
 	@Override
 	public TipoMiembroDAO geTipoMiembroDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoMiembroDAO();
 	}
 	@Override
 	public TipoPagoDAO geTipoPagoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoPagoDAO();
 	}
 	@Override
 	public TipoRutinaDAO geTipoRutinaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return geTipoRutinaDAO();
 	}
 	@Override
 	public ZonaDAO getZonaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return getZonaDAO();
 	}
 
 }
