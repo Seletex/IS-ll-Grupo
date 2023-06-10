@@ -11,9 +11,10 @@ import co.edu.uco.transformate.crosscutting.utils.UtilUUID;
 public class MembresiaDTO {
 
 	private UUID identificador;
-	private TipoMembresiaDTO tipoMembresiaDTO;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
+	private TipoMembresiaDTO tipoMembresiaDTO;
+	
 	
 	
 	
@@ -26,19 +27,12 @@ public class MembresiaDTO {
 		setTipoMembresiaDTO(tipoMembresiaDTO);
 	}
 
-	public MembresiaDTO(UUID identificadorUuid, short porcentaje, TipoDescuentoDTO tipoDescuentoDTO) {
-		setFechaFin(UtilDate.DEFAULT_DATE);
-		setFechaInicio(UtilDate.DEFAULT_DATE);
-		setIdentificador(UtilUUID.DEFAULT_UUID);
-		setTipoMembresiaDTO(TipoMembresiaDTO.create());
-		
-	
-	}
+
 
 	public MembresiaDTO() {
 		
-		setFechaFin(fechaFin);
-		setFechaInicio(fechaInicio);
+		setFechaFin(UtilDate.DEFAULT_DATE);
+		setFechaInicio(UtilDate.DEFAULT_DATE);
 		setIdentificador(UtilUUID.DEFAULT_UUID);
 		setTipoMembresiaDTO(TipoMembresiaDTO.create());
 		
@@ -56,7 +50,7 @@ public class MembresiaDTO {
 	}
 
 	public void setIdentificador(UUID identificador) {
-		this.identificador = UtilUUID.getDefault(identificador);;
+		this.identificador = UtilUUID.getDefault(identificador);
 	}
 
 	public TipoMembresiaDTO getTipoMembresiaDTO() {
