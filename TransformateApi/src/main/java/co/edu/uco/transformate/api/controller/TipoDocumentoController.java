@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uco.transformate.api.controller.response.Response;
-import co.edu.uco.transformate.business.facade.TipoDocumentoFacade;
 import co.edu.uco.transformate.crosscutting.exception.TransformateApiException;
 import co.edu.uco.transformate.crosscutting.exception.TransformateException;
 import co.edu.uco.transformate.dto.TipoDocumentoDTO;
@@ -25,7 +24,7 @@ public class TipoDocumentoController {
 
 	private final Logger log = LoggerFactory.getLogger(TipoDocumentoController.class);
 
-	private TipoDocumentoFacade facade;
+	
 
 	@GetMapping("/dummy")
 
@@ -53,7 +52,7 @@ public class TipoDocumentoController {
 		final var response = new Response<TipoDocumentoDTO>();
 		
 		try {
-			//final var result = RegistrarEstadoTipoRelacionInstitucionValidation.validate(dto);
+		
 			throw TransformateApiException.create("Se ha consultado con exito");
 			
 			}catch (final TransformateException exception) {

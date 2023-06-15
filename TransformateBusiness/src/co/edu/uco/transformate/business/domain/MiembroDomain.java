@@ -56,7 +56,7 @@ public class MiembroDomain {
 	}
 
 	private MiembroDomain() {
-	
+		
 		setCorreo(UtilText.EMPTY);
 		setFechaNacimiento(UtilDate.DEFAULT_DATE);
 		setIdentificacion(UtilUUID.DEFAULT_UUID_AS_STRING);

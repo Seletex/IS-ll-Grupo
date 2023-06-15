@@ -27,31 +27,31 @@ public class RutinaAssembler implements Assembler<RutinaDomain, RutinaDTO, Rutin
 
 	@Override
 	public RutinaDomain toDomainFromDTO(RutinaDTO dto) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
 	@Override
 	public RutinaEntity toEntityFromDomain(RutinaDomain domain) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
 	@Override
 	public RutinaDomain toDomainFromEntity(RutinaEntity entity) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public List<RutinaDomain> toDomainListFromEntityList(List<RutinaEntity> entityList) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
 	@Override
 	public List<RutinaDTO> toDTOListFromDomainList(List<RutinaDomain> domainList) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
