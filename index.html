@@ -37,7 +37,7 @@
     </div>
 
     <div class="container py-4">
-        <h1>Registrar</h1>
+        <h1>Registrar Entrenador</h1>
         <form>
             <div class="form-group">
               <label for="">Tipo Documento:</label>
@@ -75,6 +75,7 @@
 
     <script>
         let url='https://jsonplaceholder.typicode.com/users';//api
+        
         fetch(url)
             .then(response => response.json())
             .then(data => mostrarData(data))
@@ -106,8 +107,19 @@
             data.append('salario',salario);
             data.append('gimnasio',gimnasio);
 
-            fetch('conexion.php')//insertar
-        })
+            fetch('http://------',{
+                method:'POST',
+                body:data
+            })
+            .then(response => {
+                // Manejar la respuesta del servidor
+            console.log('Registro exitoso');
+            })
+            .catch(error => {
+                // Manejar errores
+            console.error('Error en el registro:', error);
+            });
+        });
     </script>
   </body>
 </html>
