@@ -1,6 +1,6 @@
 package co.edu.uco.transformate.model;
 
-import lombok.Data;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,12 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.io.Serializable;
+
+import lombok.Data;
 
 @Entity
 @Data
-@Table (name = "entrenador")
-public class Entrenador implements Serializable {
+@Table (name = "recepcionista")
+public class Recepcionista implements Serializable {
 	
 	/**
 	 * 
@@ -35,7 +36,7 @@ public class Entrenador implements Serializable {
 	private TipoDocumento documento;
 	
 	
-	public Entrenador(String identificacion, String nombre, String apellido, int salario, Gimnasio gimnasio,
+	public Recepcionista(String identificacion, String nombre, String apellido, int salario, Gimnasio gimnasio,
 			TipoDocumento documento) {
 		super();
 		this.identificacion = identificacion;
@@ -87,6 +88,4 @@ public class Entrenador implements Serializable {
 	public void setDocumento(TipoDocumento documento) {
 		this.documento = documento;
 	}
-	
-	
 }
